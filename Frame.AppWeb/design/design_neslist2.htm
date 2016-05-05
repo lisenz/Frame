@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>NesList</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../frameui/css/frameui-neslist.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/neslist.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#frameneslist").NesList({
+                Items: [
+                    {
+                        Text: "Item1",
+                        Commands: [
+                                    {
+                                        Icon: "icon-pencil",
+                                        Color: "blue",
+                                        Tip: "修改"
+                                    },
+                                    {
+                                        Icon: "icon-trash",
+                                        Color: "red",
+                                        Tip: "删除"
+                                    }],
+                        Childs: [
+                            {
+                                Text: "Item1-1",
+                                Commands: [
+                                    {
+                                        Icon: "icon-pencil",
+                                        Color: "blue",
+                                        Tip: "修改"
+                                    },
+                                    {
+                                        Icon: "icon-trash",
+                                        Color: "red",
+                                        Tip: "删除"
+                                    }],
+                                Childs: [
+                                    {
+                                        Text: "Item1-1-1",
+                                        Commands: [
+                                            {
+                                                Icon: "icon-pencil",
+                                                Color: "blue",
+                                                Tip: "修改"
+                                            },
+                                            {
+                                                Icon: "icon-trash",
+                                                Color: "red",
+                                                Tip: "删除"
+                                            }],
+                                        Childs: []
+                                    },
+                                    {
+                                        Text: "Item1-1-2",
+                                        Commands: [
+                                            {
+                                                Icon: "icon-pencil",
+                                                Color: "blue",
+                                                Tip: "修改"
+                                            },
+                                            {
+                                                Icon: "icon-trash",
+                                                Color: "red",
+                                                Tip: "删除"
+                                            }],
+                                        Childs: []
+                                    }
+                                ]
+                            },
+                            {
+                                Text: "Item1-2",
+                                Commands: [
+                                    {
+                                        Icon: "icon-pencil",
+                                        Color: "blue",
+                                        Tip: "修改"
+                                    },
+                                    {
+                                        Icon: "icon-trash",
+                                        Color: "red",
+                                        Tip: "删除"
+                                    }],
+                                Childs: [
+                                    {
+                                        Text: "Item1-2-1",
+                                        Commands: [
+                                            {
+                                                Icon: "icon-pencil",
+                                                Color: "blue",
+                                                Tip: "修改"
+                                            },
+                                            {
+                                                Icon: "icon-trash",
+                                                Color: "red",
+                                                Tip: "删除"
+                                            }],
+                                        Childs: []
+                                    },
+                                    {
+                                        Text: "Item1-2-2",
+                                        Commands: [
+                                            {
+                                                Icon: "icon-pencil",
+                                                Color: "blue",
+                                                Tip: "修改"
+                                            },
+                                            {
+                                                Icon: "icon-trash",
+                                                Color: "red",
+                                                Tip: "删除"
+                                            }],
+                                        Childs: []
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        Text: "Item2",
+                        Commands: [{ Icon: "icon-pencil", Color: "blue", Tip: "修改" }, { Icon: "icon-trash", Color: "red", Tip: "修改"}],
+                        Childs: [
+                            {
+                                Text: "Item2-1",
+                                Commands: [
+                                    {
+                                        Icon: "icon-pencil",
+                                        Color: "blue",
+                                        Tip: "修改"
+                                    },
+                                    {
+                                        Icon: "icon-trash",
+                                        Color: "red",
+                                        Tip: "删除"
+                                    }],
+                                Childs: [
+                                    {
+                                        Text: "Item2-1-1",
+                                        Commands: [
+                                            {
+                                                Icon: "icon-pencil",
+                                                Color: "blue",
+                                                Tip: "修改"
+                                            },
+                                            {
+                                                Icon: "icon-trash",
+                                                Color: "red",
+                                                Tip: "删除"
+                                            }],
+                                        Childs: []
+                                    },
+                                    {
+                                        Text: "Item2-1-2",
+                                        Commands: [
+                                            {
+                                                Icon: "icon-pencil",
+                                                Color: "blue",
+                                                Tip: "修改"
+                                            },
+                                            {
+                                                Icon: "icon-trash",
+                                                Color: "red",
+                                                Tip: "删除"
+                                            }],
+                                        Childs: []
+                                    }
+                                ]
+                            },
+                            {
+                                Text: "Item2-2",
+                                Commands: [
+                                    {
+                                        Icon: "icon-pencil",
+                                        Color: "blue",
+                                        Tip: "修改"
+                                    },
+                                    {
+                                        Icon: "icon-trash",
+                                        Color: "red",
+                                        Tip: "删除"
+                                    }],
+                                Childs: [
+                                    {
+                                        Text: "Item2-2-1",
+                                        Commands: [
+                                            {
+                                                Icon: "icon-pencil",
+                                                Color: "blue",
+                                                Tip: "修改"
+                                            },
+                                            {
+                                                Icon: "icon-trash",
+                                                Color: "red",
+                                                Tip: "删除"
+                                            }],
+                                        Childs: []
+                                    },
+                                    {
+                                        Text: "Item2-2-2",
+                                        Commands: [
+                                            {
+                                                Icon: "icon-pencil",
+                                                Color: "blue",
+                                                Tip: "修改"
+                                            },
+                                            {
+                                                Icon: "icon-trash",
+                                                Color: "red",
+                                                Tip: "删除"
+                                            }],
+                                        Childs: []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                OnCommand: function (sender, e) {
+                    var o = this;
+                    $("#frameneslist").Frame().Append(e.For, { Text: "临时0000" });
+                }
+            });
+
+            $("#btn").click(function () {
+                $("#frameneslist").Frame();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">            
+            <div id="frameneslist"></div>
+            <a id="btn">添加</a>
+        </div>
+    </div>
+</body>
+</html>

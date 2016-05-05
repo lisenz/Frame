@@ -1,0 +1,141 @@
+﻿/*
+ * FrameUI v2.1.0
+ *
+ * 侧边栏 SideBar 样式.(9)
+ *
+ * Copyright 2015 zlx
+ *
+ */
+.frame-pagination {
+    border-left: 0 none !important;
+    border-right: 0 none !important; 
+    margin: 0 auto!important; 
+    padding: 0 !important; 
+    position: relative; 
+    white-space: nowrap;
+    overflow: hidden;
+    font-size:11px;    
+    line-height: 15px;
+    height: 55px;
+    padding-top: 3px !important;
+    padding-bottom: 5px !important;
+    background-color: #EFF3F8 !important;
+    border-bottom: 1px solid #E1E1E1 !important;
+    border-top: 1px solid #E1E1E1 !important;
+}
+
+.frame-pagination .frame-pagination-control {
+    height:50px;
+    position:relative;
+    padding-left:9px;
+    padding-right:9px;
+}
+
+.frame-pagination .frame-pagination-table {
+    position: relative; 
+    padding-bottom:2px; 
+    width:auto; 
+    margin: 0;
+    font-size:13px;
+    height:100%;
+    table-layout:fixed;
+}
+
+.frame-pagination .frame-pagination-table td { font-weight:normal; vertical-align:middle; padding:1px; border-radius:0; }
+
+.frame-pagination-state-disabled{ color:#BBB; }
+.frame-pagination-icon { text-indent:0;	right:2px; }
+
+.frame-pagination .frame-pagination-table.toolbar { float:left; table-layout:auto; height:auto; }
+.frame-pagination .frame-pagination-table.pagebar { table-layout:auto; height:auto; }
+
+
+.frame-pagination .frame-pagination-button { height:19px !important; cursor:pointer; }
+.frame-pagination .frame-pagination-button span { display:block; margin: 1px; float:left; }
+
+.frame-pagination .frame-pagination-input {
+    margin: 0;
+    font-size:inherit;
+	width:24px;
+	height:20px;
+	line-height:16px;
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
+	text-align:center;
+	padding-top:1px;
+	padding-bottom:1px;
+}
+.frame-pagination .frame-pagination-button .frame-pagination-separator {
+    height: 18px; 
+    border-left: 1px solid #ccc ; 
+    border-right: 1px solid #ccc ; 
+    margin: 1px; 
+    float: right;
+    margin-left:4px;
+	margin-right:4px;
+	border-color:#c9d4db;
+}
+.frame-pagination .frame-pagination-button.separator { width:4px; }
+.frame-pagination .frame-pagination-info { font-weight: normal; height:19px; margin-top:3px; margin-right:4px; }
+
+.frame-pagination .frame-pagination-div { padding:1px 0; float:left; position:relative; }
+
+.frame-pagination .frame-pagination-div .frame-pagination-icon {
+    width: 18px;
+    position: static;
+    text-align: center;
+    opacity: 0.85;
+    transition: all 0.12s ease 0s;
+    vertical-align: middle;
+    cursor: pointer;
+    font-size: 17px;
+    margin: 0px 2px;
+}
+.frame-pagination .frame-pagination-div .frame-pagination-icon:hover{
+	-moz-transform:scale(1.2);
+	-webkit-transform:scale(1.2);
+	-o-transform:scale(1.2);
+	-ms-transform:scale(1.2);
+	transform:scale(1.2);
+	opacity:1;
+}
+.frame-pagination .frame-pagination-div .frame-pagination-icon:before { font-family: FontAwesome; display: inline; }
+
+.frame-pagination-table>tbody>tr>.frame-pagination-button>.frame-pagination-icon{
+	display:inline-block;
+	padding:0;
+	width:24px;
+	height:24px;
+	line-height:22px;
+	text-align:center;
+	position:static;
+	float:none;
+	margin:0 2px!important;
+	color:#808080;
+	border:1px solid #CCC;
+	background-color:#FFF;
+	border-radius:100%;
+}
+
+.frame-pagination-table>tbody>tr>.frame-pagination-button>.frame-pagination-icon:hover{
+	color:#699ab5;
+	border-color:#699ab5;
+}
+
+.frame-pagination-table>tbody>tr>.frame-pagination-button>.frame-pagination-icon:before{
+	width:20px;
+	text-align:center;
+	display:inline-block;
+}
+
+.frame-pagination-table>tbody>tr>.frame-pagination-button.frame-pagination-state-disabled .frame-pagination-icon{
+	color:#b0b0b0;
+	background-color:#f7f7f7;
+	border-color:#DDD;
+	-moz-transform:scale(0.9);
+	-webkit-transform:scale(0.9);
+	-o-transform:scale(0.9);
+	-ms-transform:scale(0.9);
+	transform:scale(0.9);
+}

@@ -1,0 +1,44 @@
+﻿/*
+ * FrameUI v2.1.0
+ *
+ * Form 表单布局样式.(28)
+ *
+ * Copyright 2015 zlx
+ *
+ */
+.frame-form-group{
+	margin-right:-12px;
+	margin-left:-12px;
+}
+
+.frame-form-group:before,.frame-form-group:after{
+	display:table;
+	content:" ";
+}
+
+.frame-form-group:after{
+	clear:both;
+}
+
+.frame-form-group .control-label{
+	text-align:right;
+	height:auto;
+	padding-top: 4px;
+    padding-right: 0px;
+    margin-left:15px;
+    font-size:14px;
+    vertical-align: middle;
+    background-color:transparent !important;
+    color: #393939;
+    line-height: 1.5;
+    float:left;
+}
+
+.frame-form-actions{
+	display:block;
+	background-color:#f5f5f5;
+	border-top:1px solid #e5e5e5;
+	margin-bottom:20px;
+	margin-top:20px;
+	padding:19px 20px 20px
+}

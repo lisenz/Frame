@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TextBox文本框</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/textbox.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#txtDefault").TextBox({ Icon: "icon-leaf" });
+            $("#txtDefaultOnRight").TextBox({ Icon: "icon-leaf", IconSite: "right" });
+            $("#txtSetValue").TextBox({ Size: "xxlarge", Value: "Set", Icon: "icon-leaf" });
+            $("#txtFocus").TextBox({ Size: "small", Value: "Focus",Icon: "icon-leaf",
+                OnBeforeFocus: function (sender) {
+                    $("#lbl").text("BeforeFocus");
+                    return true;
+                },
+                OnFocus: function (sender) {
+                    $("#lbl").text("Focus");
+                },
+                OnBlur: function (sender) {
+                    $("#lbl").text("Blur");
+                },
+                OnChange: function (newValue) {
+                    $("#lbl").text(newValue);
+                }
+            })
+
+            $("#txtAutoSize").TextBox({ CanMultiLine: true, AutoSize: true });
+
+            $("#btnSetValue").click(function () { $("#txtSetValue").Frame().SetValue("SetValue"); });
+
+            $("#btnReadOnly").click(function () {
+                var readonly = $("#txtSetValue").Frame("Options", "ReadOnly");
+                if (readonly)
+                    $("#txtSetValue").Frame().Readable();
+                else
+                    $("#txtSetValue").Frame().UnReadable();
+            });
+
+            $("#btnDisabled").click(function () {
+                var disabled = $("#txtSetValue").Frame("Options", "Disabled");
+                if (disabled)
+                    $("#txtSetValue").Frame().Enable();
+                else
+                    $("#txtSetValue").Frame().Disable();
+            });
+
+            $("#btnFocus").click(function () { $("#txtSetValue").Frame().Focus(); });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>TextBox文本框</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btnSetValue" class="frame-button">SetValue</button>
+                        <button id="btnReadOnly" class="frame-button">SetReadOnly</button>
+                        <button id="btnDisabled" class="frame-button">SetDisabled</button>
+                        <button id="btnFocus" class="frame-button">SetFocus</button>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <input id="txtDefault" class="frame-textbox" type="text" value="TTTTT" />
+                        <input id="txtDefaultOnRight" class="frame-textbox" type="text" value="TTTTT" />
+                        <input id="txtSetValue" class="frame-textbox" type="text" />
+                        <input id="txtFocus" class="frame-textbox" type="text" /><label id="lbl"></label>
+                        
+                        <textarea id="txtAutoSize" class="autosize-transition" style="height:69px;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

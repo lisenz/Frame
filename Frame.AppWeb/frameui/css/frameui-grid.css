@@ -1,0 +1,209 @@
+﻿/*
+ * FrameUI v2.1.0
+ *
+ * 表格Grid样式.(15)
+ *
+ * Copyright 2015 zlx
+ *
+ */
+.frame-grid { position:relative; background-color:#fff; }
+.frame-grid .frame-grid-view,
+.frame-grid > .frame-grid-view > .frame-grid-freeze-view,
+.frame-grid > .frame-grid-view > .frame-grid-groovy-view {
+    position:relative; 
+    left:0; 
+    top:0; 
+    padding:0; 
+    margin:0; 
+    font-size:0px; 
+    -webkit-text-size-adjust:none; 
+}
+
+.frame-grid > .frame-grid-view .frame-grid-overlay { z-index:100; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0, 0, 0, 0.25) none repeat scroll 0% 0%; opacity:1; display:none;}
+.frame-grid > .frame-grid-view .loading { z-index:102; position: absolute; top: 45%;left: 45%; width: auto; z-index:101; padding: 6px; margin: 5px; text-align: center; font-weight: bold; display: none; background-color: #FFF; border: 2px solid #8EB8D1; color: #E2B018; font-size:11px;}
+
+.frame-grid > .frame-grid-view > .frame-grid-freeze-view,
+.frame-grid > .frame-grid-view > .frame-grid-groovy-view {
+    display:inline-block; 
+    zoom:1; 
+    *display:inline; 
+    font-size:13px; 
+    vertical-align:middle; 
+}
+
+.frame-grid-sortable-chk { width:37px; }
+.frame-grid-sortable-num { width:60px; text-align:center; }
+
+/* header */
+.frame-grid > .frame-grid-view > .frame-grid-freeze-view .frame-grid-freeze-hdiv,
+.frame-grid > .frame-grid-view > .frame-grid-groovy-view .frame-grid-groovy-hdiv {
+    position: relative; 
+    margin: 0;
+    padding: 0; 
+    overflow-x: hidden;
+    background-color:#eff3f8;
+    line-height:15px;
+	border:1px solid #E1E1E1;
+	border-width:1px 0 0 1px;
+	font-weight:bold;
+	color:#777;
+	text-shadow:none;
+}
+.frame-grid > .frame-grid-view > .frame-grid-groovy-view .frame-grid-groovy-hdiv { border-left:0 none; }
+
+.frame-grid-freeze-hbox,.frame-grid-groovy-hbox { float: left; padding-right: 0px; }
+.frame-grid-groovy-hbox { overflow:hidden; border-right: 1px solid #E1E1E1; }
+.frame-grid-groovy-hbox-ltr { border-left: 1px solid #E1E1E1;}
+.frame-grid-freeze-htable,.frame-grid-groovy-htable { table-layout:fixed; margin:0; border-top: 0; }
+.frame-grid-freeze-htable thead,.frame-grid-groovy-htable thead { background-color:#eff3f8; }
+.frame-grid-freeze-htable th,.frame-grid-groovy-htable th {
+    padding: 0 2px; 
+    border-right: 1px solid #E1E1E1 !important; 
+    text-align: left !important; 
+    height: 40px !important;
+    vertical-align:middle;
+}
+
+.frame-grid-freeze-htable .frame-grid-sortable-chk > .frame-checkbox-wrapper > label { background-color:#F2F2F2 !important; }
+
+.frame-grid-table-th-column, 
+.frame-grid .frame-grid-freeze-htable th.frame-grid-table-th-column, 
+.frame-grid .frame-grid-groovy-htable th.frame-grid-table-th-column {
+    overflow: hidden;
+    white-space: nowrap;
+    text-align:center;
+    border-top : 0 none;
+    border-bottom : 0 none;
+    text-overflow:ellipsis;
+}
+.frame-grid-table-th-ltr, 
+.frame-grid .frame-grid-freeze-htable th.frame-grid-table-th-ltr,
+.frame-grid .frame-grid-groovy-htable th.frame-grid-table-th-ltr { border-left:0 none; }
+.frame-grid-table-th-rtl, 
+.frame-grid .frame-grid-freeze-htable th.frame-grid-table-th-rtl, 
+.frame-grid .frame-grid-groovy-htable th.frame-grid-table-th-rtl { border-right:0 none; }
+.frame-grid-table-th-noborder,
+.frame-grid .frame-grid-freeze-htable th.frame-grid-table-th-noborder, 
+.frame-grid .frame-grid-groovy-htable th.frame-grid-table-th-noborder { border:0!important; }
+
+.frame-grid-table-first-th-ltr { border-right:1px solid; }
+.frame-grid-table-first-th-rtl { border-left:1px solid; }
+
+.frame-grid-freeze-htable .frame-grid-freeze-labels,.frame-grid-groovy-htable .frame-grid-groovy-labels {
+    background-position: 0% 0%;
+    background-repeat: repeat-x;
+    padding: 0 !important;
+    -border-left: 1px solid #e1e1e1!important;
+    background-image: linear-gradient(to bottom,#f8f8f8 0,#ececec 100%);
+    border-bottom-style: none;
+    border-bottom-color: inherit;
+    border-bottom-width: 0;
+    background-color: #f2f2f2;
+    background-attachment: scroll;
+}
+
+.frame-grid-sortable {
+    padding-left:4px; 
+    font-size:13px; 
+    color:#777; 
+    font-weight:bold; 
+    cursor:pointer; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow:ellipsis; 
+}
+.frame-grid-sortable:hover{	color:#547ea8; }
+
+/* body */
+.frame-grid > .frame-grid-view > .frame-grid-freeze-view .frame-grid-freeze-bdiv,
+.frame-grid > .frame-grid-view > .frame-grid-groovy-view .frame-grid-groovy-bdiv {
+    position: relative; 
+    margin: 0; 
+    padding:0; 
+    overflow: auto; 
+    text-align:left;
+    border-top: 1px solid #E1E1E1;    
+    border-left:1px solid #E1E1E1;  
+    border-right:1px solid #E1E1E1;
+}
+.frame-grid > .frame-grid-view > .frame-grid-freeze-view .frame-grid-freeze-bdiv { border-right:0 none; overflow:hidden; }
+.frame-grid > .frame-grid-view > .frame-grid-groovy-view .frame-grid-groovy-bdiv { border-left:0 none; }
+.frame-grid > .frame-grid-view > .frame-grid-groovy-view .frame-grid-groovy-bdiv.frame-grid-groovy-bdiv-ltr {border-left:1px solid #E1E1E1; }
+
+.frame-grid > .frame-grid-view > .frame-grid-freeze-view .frame-grid-freeze-bdiv > .frame-grid-freeze-bbox,
+.frame-grid > .frame-grid-view > .frame-grid-groovy-view .frame-grid-groovy-bdiv > .frame-grid-groovy-bbox {
+    position:relative; 
+}
+.frame-grid > .frame-grid-view > .frame-grid-freeze-view .frame-grid-freeze-bdiv > .frame-grid-freeze-bbox { overflow:hidden; }
+
+.frame-grid-freeze-btable,.frame-grid-groovy-btable {
+    table-layout:fixed; 
+    margin:0; 
+    outline-style: none;
+    border-collapse:inherit;
+}
+
+.frame-grid .frame-grid-freeze-btable tr.frame-grid-row { outline-style: none; }
+.frame-grid .frame-grid-freeze-btable tr.frame-grid-row,.frame-grid .frame-grid-freeze-btable tr.frame-grid-row-ltr,.frame-grid .frame-grid-freeze-btable tr.frame-grid-row-rtl{border:0;}
+.frame-grid .frame-grid-groovy-btable tr.frame-grid-row,.frame-grid .frame-grid-groovy-btable tr.frame-grid-row-ltr,.frame-grid .frame-grid-groovy-btable tr.frame-grid-row-rtl{border:0;}
+
+.frame-grid tr.frame-grid-row td > .frame-grid-sortable { font-weight: normal; }
+.frame-grid tr.frame-grid-row td > .frame-grid-sortable:hover { color:#777; }
+
+.frame-grid tr.frame-grid-row td {
+    font-weight: normal; 
+    overflow: hidden; 
+    white-space:nowrap; 
+    height: 39px;
+    padding: 0px 2px;    
+    vertical-align:middle;
+    border-bottom-width: 1px; 
+    border-bottom-color: inherit; 
+    border-bottom-style: solid;
+}
+.frame-grid tr.frame-grid-row-ltr td {
+    text-align:left;
+    border-right-width: 1px; 
+    border-right-color: inherit; 
+    border-right-style: solid;
+}
+.frame-grid tr.frame-grid-row-rtl td {
+    text-align:right;
+    border-left-width: 1px; 
+    border-left-color: inherit; 
+    border-left-style: solid;
+}
+.frame-grid tr.frame-grid-row-ltr td{
+	border-bottom:1px solid #e1e1e1;
+	border-color:#e1e1e1;
+}
+.frame-grid tr.frame-grid-last-row td {
+    border-bottom:0 none;
+}
+
+.frame-grid-freeze-btable tr.frame-grid-state-highlight.frame-grid-row-ltr td,.frame-grid-groovy-btable tr.frame-grid-state-highlight.frame-grid-row-ltr td{
+	border-right-color:#c7d3a9;
+}
+
+.frame-grid-freeze-btable tr.frame-grid-state-highlight.frame-grid-row-rtl td,.frame-grid-groovy-btable tr.frame-grid-state-highlight.frame-grid-row-rtl td{
+	border-left-color:#c7d3a9;
+}
+
+.frame-grid-freeze-btable .frame-grid-row.frame-grid-priority-secondary,.frame-grid-groovy-btable .frame-grid-row.frame-grid-priority-secondary{
+	background-image:none;
+	background-color:#f9f9f9;
+	opacity:1;
+}
+.frame-grid-freeze-btable .frame-grid-row.frame-grid-priority-secondary .frame-grid-sortable-chk > .frame-checkbox-wrapper > label { background-color:#f9f9f9 !important; }
+
+.frame-grid-freeze-btable .frame-grid-row.frame-grid-state-hover,.frame-grid-groovy-btable .frame-grid-row.frame-grid-state-hover{
+	background-image:none;
+	background-color:#eff4f7;
+	opacity:1;
+}
+.frame-grid-freeze-btable .frame-grid-row.frame-grid-state-hover .frame-grid-sortable-chk > .frame-checkbox-wrapper > label { background-color:#eff4f7 !important; }
+
+.frame-grid-freeze-btable .frame-grid-row.frame-grid-state-highlight,.frame-grid-groovy-btable .frame-grid-row.frame-grid-state-highlight{
+	background-color:#e4efc9;
+}
+.frame-grid-freeze-btable .frame-grid-row.frame-grid-state-highlight .frame-grid-sortable-chk > .frame-checkbox-wrapper > label { background-color:#e4efc9 !important; }

@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Grid</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/checkbox.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/grid.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/pagination.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#btnSelectRow").on("click", function () {
+                var rowIndex = $("#txtRowIndex").val();
+                $("#dg").Frame().SelectRow(rowIndex);
+            });
+
+            $("#btnUnSelectRow").on("click", function () {
+                var rowIndex = $("#txtRowIndex").val();
+                $("#dg").Frame().UnSelectRow(rowIndex);
+            });
+
+            $("#btnSelections").on("click", function () {
+                var s = $("#dg").Frame().GetSelections();                
+            });
+
+            $("#dg").Grid({ CanShowPager: true, CanShowCheckBox: true, CanShowRowNumber: true, CanMultiple: false,
+                OnCheckRow: function () {
+                },
+                FrozenColumns: [
+                { Title: "ID", Field: "ID", Width: 50 },
+                { Title: "名称", Field: "Name", Width: 50 }
+                ],
+                Columns: [
+                { Title: "FieldA", Field: "FieldA", Width: 60 },
+                { Title: "FieldB", Field: "FieldB", Width: 70 },
+                { Title: "FieldCccccccc", Field: "FieldC", Width: 80 },
+                { Title: "FieldD", Field: "FieldD", Width: 90 },
+                { Title: "Field1", Field: "Field1", Width: 90 },
+                { Title: "Field2", Field: "Field2", Width: 90 },
+                { Title: "Field3", Field: "Field3", Width: 90 },
+                { Title: "Field4", Field: "Field4", Width: 90 },
+                { Title: "Field5", Field: "Field5", Width: 90 },
+                { Title: "Field6", Field: "Field6", Width: 90 },
+                { Title: "Field7", Field: "Field7", Width: 90 },
+                { Title: "Field8", Field: "Field8", Width: 90 },
+                { Title: "Field9", Field: "Field9", Width: 90 },
+                { Title: "Fieldr", Field: "Fieldr", Width: 90 }
+                ],
+                DataSource: { Total: 15, Rows: [
+                { ID: "11", Name: "Name1", FieldA: "FieldA1", FieldB: "FieldB1", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "Field9sd", Fieldr: "Fieldrasda" },
+                { ID: "12", Name: "Name2", FieldA: "sdfsdf", FieldB: "fheb", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "sdfss", Fieldr: "Fieldrasda" },
+                { ID: "13", Name: "Name3", FieldA: "fdghg", FieldB: "kdjfur", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "sdfsdf", Fieldr: "Fieldrasda" },
+                { ID: "14", Name: "Name4", FieldA: "sdfsf", FieldB: "nudnf", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "3rg", Fieldr: "Fieldrasda" },
+                { ID: "15", Name: "Name5", FieldA: "bfghfg", FieldB: "urdke", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "vbnf", Fieldr: "Fieldrasda" },
+                { ID: "17", Name: "Name6", FieldA: "456hfh", FieldB: "jdjfd", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "dfgd", Fieldr: "Fieldrasda" },
+                { ID: "18", Name: "Name6", FieldA: "456hfh", FieldB: "jdjfd", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "dfgd", Fieldr: "Fieldrasda" },
+                { ID: "19", Name: "Name6", FieldA: "456hfh", FieldB: "jdjfd", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "dfgd", Fieldr: "Fieldrasda" },
+                { ID: "20", Name: "Name6", FieldA: "456hfh", FieldB: "jdjfd", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "dfgd", Fieldr: "Fieldrasda" },
+                { ID: "21", Name: "Name6", FieldA: "456hfh", FieldB: "jdjfd", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "dfgd", Fieldr: "Fieldrasda" },
+                { ID: "22", Name: "Name6", FieldA: "456hfh", FieldB: "jdjfd", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "dfgd", Fieldr: "Fieldrasda" },
+                { ID: "23", Name: "Name6", FieldA: "456hfh", FieldB: "jdjfd", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "dfgd", Fieldr: "Fieldrasda" },
+                { ID: "24", Name: "Name6", FieldA: "456hfh", FieldB: "jdjfd", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "dfgd", Fieldr: "Fieldrasda" },
+                { ID: "25", Name: "Name6", FieldA: "456hfh", FieldB: "jdjfd", FieldC: "FieldC1", FieldD: "FieldD1", Field1: "Field122", Field2: "Field2dfgd", Field3: "Field3rh", Field4: "Field4dgdfg", Field5: "Field5fddfg", Field6: "Field6fhfgh", Field7: "Field7sdfsd", Field8: "Field8dfgdf", Field9: "dfgd", Fieldr: "Fieldrasda" }
+                ]
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-conatiner">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>Grid</h1>
+                </div>
+
+                <div class="row">
+                    <div style="width:1000px; height:500px; background-color:Orange;">
+                        <div id="dg"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <input id="txtRowIndex" type="text" class="frame-textbox" />
+                    <button id="btnSelectRow" class="frame-button">SelectRow</button>
+                    <button id="btnUnSelectRow" class="frame-button">UnSelectRow</button>
+                    <button id="btnSelections" class="frame-button">Selections</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

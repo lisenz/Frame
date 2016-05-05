@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Buttons</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/button.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/appbutton.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/label.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/badge.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#btn").AppButton({ Icon: "icon-home", OnClick: function (sender) { alert($(sender).text()); } });
+            $("#btnEnable").Button({
+                OnClick: function () {
+                    $("#btn").Frame().Enable();
+                }
+            });
+            $("#btnDisable").Button({
+                OnClick: function () {
+                    $("#btn").Frame().Disable();
+                }
+            });
+            $("#btnToggle").Button({
+                OnClick: function () {
+                    var disabled = $("#btn").Frame("Options", "Disabled");
+                    if (disabled)
+                        $("#btn").Frame().Enable();
+                    else
+                        $("#btn").Frame().Disable();
+                }
+            });
+
+            $("#btnOnlyIcon").AppButton({ Icon: "icon-home", Mode: "success" });
+            $("#btnOnlyText").AppButton({ Mode: "error" });
+
+            $("#btnWithLabel").AppButton({ Icon: "icon-home", Mode: "warning", BookMark: $("<label></label>").Label({ WithArrow: "arrowed-in-left", Mode: "success", Text: "推荐" }) });
+            $("#btnWithBadge").AppButton({ Icon: "icon-home", Mode: "warning", BookMark: $("<span></span>").Badge({ Mode: "success", Text: "6" }) });
+
+            $("#btnSetLabelText").Button({ Mode: "inverse",
+                OnClick: function () {
+                    $("#btnWithLabel").Frame().SetBookMarkText("VIP");
+                }
+            });
+            $("#btnSetBadgeText").Button({ Mode: "success",
+                OnClick: function () {
+                    $("#btnWithBadge").Frame().SetBookMarkText("60+");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-head">
+                    <h1>Buttons</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btn" class="frame-button-app">AppButton</button>
+                        <button id="btnEnable" class="frame-button">Button Trigger Enable</button>
+                        <button id="btnDisable" class="frame-button">Button Trigger Disable</button>
+                        <button id="btnToggle" class="frame-button">Button Toggle</button>
+                    </div>
+                    <div class="space"></div>
+                    <div class="col-12">
+                        <button id="btnOnlyIcon" class="frame-button-app"></button>    
+                        <button id="btnOnlyText" class="frame-button-app">AppButton</button>
+                        <button id="btnWithLabel" class="frame-button-app">Label</button>       
+                        <button id="btnWithBadge" class="frame-button-app">Badge</button>  
+                                                
+                        <button id="btnSetLabelText" class="frame-button">Set Label Text</button>  
+                        <button id="btnSetBadgeText" class="frame-button">Set Badge Text</button>           
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

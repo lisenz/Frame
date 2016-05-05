@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Button Group</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/button.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#btn1").Button({ Mode: "original", Icon: "icon-plus" });
+            $("#btn2").Button({ Mode: "original", Icon: "icon-edit" });
+            $("#btn3").Button({ Mode: "original", Icon: "icon-trash" });
+            $("#btn4").Button({ Mode: "original", Icon: "icon-search" });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-head">
+                    <h1>Buttons</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="frame-button-groups">
+                            <button class="frame-button"><i class="icon-bolt"></i><span>Original1</span></button>
+                            <button class="frame-button"><i class="icon-bolt"></i><span>Original2</span></button>
+                            <button class="frame-button"><i class="icon-bolt"></i><span>Original3</span></button>
+                            <button class="frame-button"><i class="icon-bolt"></i><span>Original4</span></button>
+                            <button class="frame-button"><i class="icon-bolt"></i><span>Original5</span></button>
+                            <button class="frame-button"><i class="icon-bolt"></i><span>Original6</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="frame-button-groups">
+                            <button id="btn1">新增</button>
+                            <button id="btn2">修改</button>
+                            <button id="btn3">删除</button>
+                            <button id="btn4">查询</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

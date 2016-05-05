@@ -1,0 +1,149 @@
+﻿/*
+ * FrameUI v2.1.0
+ *
+ * 窗体FormBox 样式.(24)
+ *
+ * Copyright 2015 zlx
+ *
+ */
+ 
+.frame-formbox{
+    position:fixed;
+    z-index:1050;
+    top:0;
+    left:0;
+	width:auto;
+	padding:0;
+	margin:0;
+	margin-right:auto;
+	margin-left:auto;
+}
+
+.frame-formbox-inner{
+	position:relative;
+	background-color:#fff;
+	border:1px solid rgba(0,0,0,0.2);
+	outline:0;
+	background-clip:padding-box;	
+	border-radius:0;
+	-webkit-box-shadow:none;
+	box-shadow:none;
+}
+
+/* 窗体标题栏 */
+.frame-formbox-header{
+	min-height:16px;
+	padding:4px;
+	border-bottom:1px solid rgba(0,0,0,0.2);
+	cursor:default;
+}
+
+.frame-formbox-header>.close {
+    font-family:"";
+    font-weight: bold;
+    line-height:22px;
+    line-height: 1\9;
+    color: #999;
+    font-size: 32px;
+    text-shadow: 0px 1px 0px #FFF;
+    opacity: 1;
+    padding: 0px;
+    cursor: pointer;
+    background: transparent none repeat scroll 0% 0%;
+    border: 0px none;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){ .frame-formbox-header>.close { line-height:32px; } }
+.frame-formbox-header>.close:hover,.frame-formbox-header>.close:focus{
+	color:red;
+	text-decoration:none;
+	cursor:pointer;
+	opacity:1;
+	filter:alpha(opacity=100);
+	outline:none;
+}
+
+.frame-formbox-title{
+	margin:0 4px;
+	line-height:1.428571429;
+}
+
+.frame-formbox-title>span { margin-left:6px; }
+
+.frame-formbox-toolbar{
+    display:inline-block;
+	padding:0 8px 0 10px;
+	line-height:1.5;
+	float:right;
+	position:relative;
+}
+
+.frame-formbox-header>.close:before{
+	display:inline-block;
+	content:"";
+	position:absolute;
+	top:7px;
+	bottom:3px;
+	right:35px;
+	right:25px\9;
+	border:1px solid #d9d9d9;
+	border-width:0 1px 0 0;
+	opacity:1;
+	filter:alpha(opacity=100);
+	height:22px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){ .frame-formbox-header>.close:before { right:26px; } }
+
+.-frame-formbox-toolbar:after{
+	display:inline-block;
+	content:"";
+	position:absolute;
+	top:3px;
+	bottom:3px;
+	right:3px;
+	border:1px solid #d9d9d9;
+	border-width:0 1px 0 0;
+}
+.frame-formbox-toolbar>a{
+	font-size:19px;
+	margin:0 1px;
+	padding:0;
+}
+
+.frame-formbox-toolbar>a:hover,.frame-formbox-toolbar>a:focus,.frame-formbox-toolbar>a:active{
+	text-decoration:none;
+	outline:none;
+}
+
+/* 窗体内容 */
+.frame-formbox-content{
+	position:relative;
+	padding:5px;
+	overflow:auto;
+	overflow-x:hidden;
+	min-height:65px;
+}
+
+.frame-formbox-content-position { position:relative; }
+
+/* 窗体操作区 */
+.frame-formbox-footer{
+	padding:8px 20px;
+	text-align:right;
+	border-top:1px solid rgba(0,0,0,0.2);
+    box-shadow: none;
+    background-color: #EFF3F8;
+}
+
+.frame-formbox-footer:before,.frame-formbox-footer:after{
+	display:table;
+	content:" "
+}
+
+.frame-formbox-footer:after{
+	clear:both
+}
+
+.frame-formbox-footer .frame-button+.frame-button{
+	margin-bottom:0;
+	margin-left:5px;
+}

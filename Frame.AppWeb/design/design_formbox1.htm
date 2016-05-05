@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FormBox</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/button.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/draggable.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/resizable.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/formbox.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#ff").FormBox({
+                Title: "Form2",
+                CanDraggable: true,
+                Closable: true,
+                CanResizable: true,
+                IsModal: true,
+                Width: 400,
+                Height: 500
+            });
+
+            $("#btn1").on("click", function () {
+                $.FormBox.Show({
+                    Title: "测试",
+                    CanDraggable: true,
+                    Closable: true,
+                    CanResizable: true,
+                    Url: "design_button_label.htm",
+                    IsModal: true,
+                    Width: 400,
+                    Height: 500
+                });
+            });
+
+            $("#btn2").on("click", function () {
+                $("#ff").Frame().Show();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frame-formbox-modal in"></div>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>Panel</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btn1" class="frame-button frame-button-success">FormBox</button>
+                        <button id="btn2" class="frame-button frame-button-success">ModalBox</button>
+
+                        <div id="ff">
+                            <div style=" background-color:Orange;">
+                                dfsdfjsfs
+                                <br />
+                                sfsoiowerl
+                                <br />
+                                8902394028348
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="d" style="background-color:Red; display:none;">
+        skjfsdjfsd
+        <br />
+        sdfsdfsdfssdfsdfsfs
+        <hr />
+        8798797987sdjfs
+    </div>
+</body>
+</html>

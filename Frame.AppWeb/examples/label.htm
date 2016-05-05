@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Label</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForLabel").Tabs({ Plain: true });
+            $("#lbDefault").Label();
+            $("#lbTransparent").Label({ Mode: "transparent" });
+            $("#lbArrowedLeft").Label({ WithArrow: "arrowed-left" });
+            $("#lbArrowedBoth").Label({ WithArrow: "arrowed-both" });
+            $("#lbArrowedRight").Label({ WithArrow: "arrowed-right" });
+            $("#lbArrowedInLeft").Label({ WithArrow: "arrowed-in-left" });
+            $("#lbArrowedInBoth").Label({ WithArrow: "arrowed-in-both" });
+            $("#lbArrowedInRight").Label({ WithArrow: "arrowed-in-right" });
+            $("#lbArrowLeft").Label({ WithArrow: "arrow-left" });
+            $("#lbArrowRight").Label({ WithArrow: "arrow-right" });
+            //---------------------------------------------------------------
+            $("#lbPrimary").Label({ Mode: "info" });
+            $("#lbInfo").Label({ Mode: "primary" });
+            $("#lbSuccess").Label({ Mode: "success" });
+            $("#lbWarning").Label({ Mode: "warning" });
+            $("#lbImportant").Label({ Mode: "important" });
+            $("#lbError").Label({ Mode: "error" });
+            $("#lbInverse").Label({ Mode: "inverse" });
+            //---------------------------------------------------------------
+            $("#lbNormal").Label({ Size: "normal" });
+            $("#lbSmall").Label({ Size: "small" });
+            $("#lbLarge").Label({ Size: "large" });
+            $("#lbXLarge").Label({ Size: "xlarge" });
+            //---------------------------------------------------------------
+            $("#lbLeftIcon").Label({ Icon: "icon-bell ", IconSite: "left", Size: "xlarge" });
+            $("#lbSideIcon").Label({ Icon: ["icon-plus", "icon-minus"], IconSite: "side", Size: "xlarge" });
+            $("#lbRightIcon").Label({ Icon: "icon-bookmark-empty", IconSite: "right", Size: "xlarge" });
+            $("#lbOnlyIcon").Label({ Icon: "icon-cogs ", IconSite: "only", Size: "xlarge" });
+
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>Label</h1>
+        </div>
+        <div class="row">
+            <div id="tabForLabel">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">标签控件可以当作静态组件使用。通过在 <span class="red smaller-75">span</span> 或者 <span class="red smaller-75">label</span> 标签上添加 <span class="red smaller-75">.frame-label</span> 。此时标签背景色默认显示灰底色。<br />
+                    若需要设置其他背景色，有8种不同的背景色：<span class="red smaller-75">.frame-label-transparent</span>，<span class="red smaller-75">.frame-label-info</span>，<span class="red smaller-75">.frame-label-primary</span>，<span class="red smaller-75">.frame-label-success</span>，<span class="red smaller-75">.frame-label-warning</span>，<span class="red smaller-75">.frame-label-important</span>，<span class="red smaller-75">.frame-label-error</span>，<span class="red smaller-75">.frame-label-inverse</span> 。<br />
+                    有三种不同的尺寸：<span class="red smaller-75">.frame-label-small</span>，<span class="red smaller-75">.frame-label-large</span>，<span class="red smaller-75">.frame-label-xlarge</span>，默认为标准尺寸。
+                    </p>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> 如果要使标签带箭头，需要对 <span class="red smaller-75">.arrowed</span>，<span class="red smaller-75">.arrowed-in</span>，<span class="red smaller-75">.arrowed-right</span>，<span class="red smaller-75">.arrowed-in-right</span> 进行组合使用，具体请参考下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    组合 class 类
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    组合效果
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="brown">.arrowed</span>：<span class="smaller-80"><span class="blue">&lt;span</span> <span class="green">class=</span><span class="red">"frame-label frame-label-primary arrowed"</span><span class="blue">&gt;</span>Arrowed Label<span class="blue">&lt;/span&gt;</span></span></td>
+                                <td><span class="frame-label frame-label-primary arrowed">Arrowed Label</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="brown">.arrowed-in</span>：<span class="smaller-80"><span class="blue">&lt;span</span> <span class="green">class=</span><span class="red">"frame-label frame-label-primary arrowed-in"</span><span class="blue">&gt;</span>Arrowed-in Label<span class="blue">&lt;/span&gt;</span></span></td>
+                                <td><span class="frame-label frame-label-primary arrowed-in">Arrowed-in Label</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="brown">.arrowed-right</span>：<span class="smaller-80"><span class="blue">&lt;span</span> <span class="green">class=</span><span class="red">"frame-label frame-label-primary arrowed-right"</span><span class="blue">&gt;</span>Arrowed-right Label<span class="blue">&lt;/span&gt;</span></span></td>
+                                <td><span class="frame-label frame-label-primary arrowed-right">Arrowed-right Label</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="brown">.arrowed-in-right</span>：<span class="smaller-80"><span class="blue">&lt;span</span> <span class="green">class=</span><span class="red">"frame-label frame-label-primary arrowed-in-right"</span><span class="blue">&gt;</span>Arrowed-in-right Label<span class="blue">&lt;/span&gt;</span></span></td>
+                                <td><span class="frame-label frame-label-primary arrowed-in-right">Arrowed-in-right Label</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="brown">.arrowed</span>，<span class="brown">.arrowed-in-right</span>：<span class="smaller-80"><span class="blue">&lt;span</span> <span class="green">class=</span><span class="red">"frame-label frame-label-primary arrowed arrowed-in-right"</span><span class="blue">&gt;</span>Arrowed left Label<span class="blue">&lt;/span&gt;</span></span></td>
+                                <td><span class="frame-label frame-label-primary arrowed arrowed-in-right">Arrowed left Label</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="brown">.arrowed-in</span>，<span class="brown">.arrowed-right</span>：<span class="smaller-80"><span class="blue">&lt;span</span> <span class="green">class=</span><span class="red">"frame-label frame-label-primary arrowed-in arrowed-right"</span><span class="blue">&gt;</span>Arrowed right Label<span class="blue">&lt;/span&gt;</span></span></td>
+                                <td><span class="frame-label frame-label-primary arrowed-in arrowed-right">Arrowed right Label</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="brown">.arrowed</span>，<span class="brown">.arrowed-right</span>：<span class="smaller-80"><span class="blue">&lt;span</span> <span class="green">class=</span><span class="red">"frame-label frame-label-primary arrowed-in arrowed-right"</span><span class="blue">&gt;</span>Arrowed both Label<span class="blue">&lt;/span&gt;</span></span></td>
+                                <td><span class="frame-label frame-label-primary arrowed arrowed-right">Arrowed both Label</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="brown">.arrowed-in</span>，<span class="brown">.arrowed-in-right</span>：<span class="smaller-80"><span class="blue">&lt;span</span> <span class="green">class=</span><span class="red">"frame-label frame-label-primary arrowed-in arrowed-right"</span><span class="blue">&gt;</span>Arrowed in both Label<span class="blue">&lt;/span&gt;</span></span></td>
+                                <td><span class="frame-label frame-label-primary arrowed-in arrowed-in-right">Arrowed in both Label</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr />
+                    <i class="icon-bookmark dark"></i> 还可以使用 Frame 组件形式生成 Label 标签，通过使用 <span class="red smaller-75">var lbl = $("#页面标签id").Label(options);</span> 这样一行代码，即可将页面指定ID的标签通过 <span class="red smaller-75">options</span> 相关属性的配置生成相应的标签。<br />
+                    Options 属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Text</td>
+                                <td>标签文本内容。当页面标签已有内容，若属性 Text 也设置文本，优先使用属性设置的文本内容。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Size</td>
+                                <td>标签尺寸，有3种尺寸：small，large，xlarge。normal 表示默认标准尺寸。</td>
+                                <td>String</td>
+                                <td>normal</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Mode</td>
+                                <td>标签的背景色模式，有8种模式可选：transparent，info，primary，success，warning，important，error，inverse。</td>
+                                <td>String</td>
+                                <td>primary</td>
+                            </tr>
+                            <tr>
+                                <td class="center">WithArrow</td>
+                                <td>标识标签箭头的样式，有8种样式可选：arrowed-left，arrowed-both，arrowed-right，arrowed-in-left，arrowed-in-both，arrowed-in-right，arrow-left，arrow-right 。若标签不需要有箭头样式，设置为 false。</td>
+                                <td>String</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Icon</td>
+                                <td>标签的图标 class 样式名称（若标签需要图标的话）。</td>
+                                <td>String/Array</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">IconSite</td>
+                                <td>标签的图标在标签里的位置，有4种选项：left，both，right，only。注意：当属性为 both 时，Icon属性 为数组类型，且需要设置两个 class 样式。</td>
+                                <td>String</td>
+                                <td>left</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Width</td>
+                                <td>标签的宽度。若显式设置标签宽度，则标签根据内容自适应宽度。</td>
+                                <td>Number</td>
+                                <td>null</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;label id="lbDefault" class="frame-label"&gt;默认样式标签&lt;/label&gt;
+&lt;label id="lbTransparent" class="frame-label"&gt;透明背景样式标签&lt;/label&gt;
+&lt;label id="lbArrowedLeft" class="frame-label"&gt; WithArrow 属性为 arrowed-left&lt;/label&gt;
+&lt;label id="lbArrowedBoth" class="frame-label"&gt; WithArrow 属性为 arrowed-both&lt;/label&gt;
+&lt;label id="lbArrowedRight" class="frame-label"&gt; WithArrow 属性为 arrowed-right&lt;/label&gt;
+&lt;label id="lbArrowedInLeft" class="frame-label"&gt; WithArrow 属性为 arrowed-in-left&lt;/label&gt;
+&lt;label id="lbArrowedInBoth" class="frame-label"&gt; WithArrow 属性为 arrowed-in-both&lt;/label&gt;
+&lt;label id="lbArrowedInRight" class="frame-label"&gt; WithArrow 属性为 arrowed-in-right&lt;/label&gt;
+&lt;label id="lbArrowLeft" class="frame-label"&gt; WithArrow 属性为 arrow-left&lt;/label&gt;
+&lt;label id="lbArrowRight" class="frame-label"&gt; WithArrow 属性为 arrow-right&lt;/label&gt;
+//---------------------------------------------------------------
+&lt;label id="lbPrimary" class="frame-label"&gt; Mode 属性为 primary&lt;/label&gt;
+&lt;label id="lbInfo" class="frame-label"&gt; Mode 属性为 info&lt;/label&gt;
+&lt;label id="lbSuccess" class="frame-label"&gt; Mode 属性为 success&lt;/label&gt;
+&lt;label id="lbWarning" class="frame-label"&gt; Mode 属性为 warning&lt;/label&gt;
+&lt;label id="lbImportant" class="frame-label"&gt; Mode 属性为 important&lt;/label&gt;
+&lt;label id="lbError" class="frame-label"&gt; Mode 属性为 error&lt;/label&gt;
+&lt;label id="lbInverse" class="frame-label"&gt; Mode 属性为 inverse&lt;/label&gt;
+//---------------------------------------------------------------
+&lt;label id="lbNormal" class="frame-label"&gt; Size 属性为 normal&lt;/label&gt;
+&lt;label id="lbSmall" class="frame-label"&gt; Size 属性为 small&lt;/label&gt;
+&lt;label id="lbLarge" class="frame-label"&gt; Size 属性为 large&lt;/label&gt;
+&lt;label id="lbXLarge" class="frame-label"&gt; Size 属性为 xlarge&lt;/label&gt;
+//---------------------------------------------------------------
+&lt;label id="lbLeftIcon" class="frame-label"&gt; 左侧带图标(IconSite 属性为 left)&lt;/label&gt;
+&lt;label id="lbSideIcon" class="frame-label"&gt; 两侧带图标(IconSite 属性为 site) &lt;/label&gt;
+&lt;label id="lbRightIcon" class="frame-label"&gt; 右侧带图标(IconSite 属性为 right) &lt;/label&gt;
+&lt;label id="lbOnlyIcon" class="frame-label"&gt;&lt;/label&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#lbDefault").Label();
+$("#lbTransparent").Label({ Mode: "transparent" });
+$("#lbArrowedLeft").Label({ WithArrow: "arrowed-left" });
+$("#lbArrowedBoth").Label({ WithArrow: "arrowed-both" });
+$("#lbArrowedRight").Label({ WithArrow: "arrowed-right" });
+$("#lbArrowedInLeft").Label({ WithArrow: "arrowed-in-left" });
+$("#lbArrowedInBoth").Label({ WithArrow: "arrowed-in-both" });
+$("#lbArrowedInRight").Label({ WithArrow: "arrowed-in-right" });
+$("#lbArrowLeft").Label({ WithArrow: "arrow-left" });
+$("#lbArrowRight").Label({ WithArrow: "arrow-right" });
+//---------------------------------------------------------------
+$("#lbPrimary").Label({ Mode: "info" });
+$("#lbInfo").Label({ Mode: "primary" });
+$("#lbSuccess").Label({ Mode: "success" });
+$("#lbWarning").Label({ Mode: "warning" });
+$("#lbImportant").Label({ Mode: "important" });
+$("#lbError").Label({ Mode: "error" });
+$("#lbInverse").Label({ Mode: "inverse" });
+//---------------------------------------------------------------
+$("#lbNormal").Label({ Size: "normal" });
+$("#lbSmall").Label({ Size: "small" });
+$("#lbLarge").Label({ Size: "large" });
+$("#lbXLarge").Label({ Size: "xlarge" });
+//---------------------------------------------------------------
+$("#lbLeftIcon").Label({ Icon: "icon-bell ", IconSite: "left", Size: "xlarge" });
+$("#lbSideIcon").Label({ Icon: ["icon-plus", "icon-minus"], IconSite: "side", Size: "xlarge" });
+$("#lbRightIcon").Label({ Icon: "icon-bookmark-empty", IconSite: "right", Size: "xlarge" });
+$("#lbOnlyIcon").Label({ Icon: "icon-cogs ", IconSite: "only", Size: "xlarge" });</pre>
+                </div>
+                <div title="示例">
+                    <div class="space"></div>
+                    <ul class="list-unstyled spaced pull-left">
+                        <li><label id="lbDefault" class="frame-label">默认样式标签</label></li>
+                        <li><label id="lbTransparent" class="frame-label">透明背景样式标签</label></li>
+                        <li><label id="lbArrowedLeft" class="frame-label"> WithArrow 属性为 arrowed-left</label></li>
+                        <li><label id="lbArrowedBoth" class="frame-label"> WithArrow 属性为 arrowed-both</label></li>
+                        <li><label id="lbArrowedRight" class="frame-label"> WithArrow 属性为 arrowed-right</label></li>
+                        <li><label id="lbArrowedInLeft" class="frame-label"> WithArrow 属性为 arrowed-in-left</label></li>
+                        <li><label id="lbArrowedInBoth" class="frame-label"> WithArrow 属性为 arrowed-in-both</label></li>
+                        <li><label id="lbArrowedInRight" class="frame-label"> WithArrow 属性为 arrowed-in-right</label></li>
+                        <li><label id="lbArrowLeft" class="frame-label"> WithArrow 属性为 arrow-left</label></li>
+                        <li><label id="lbArrowRight" class="frame-label"> WithArrow 属性为 arrow-right</label></li>
+                    </ul>
+                    <ul class="list-unstyled spaced pull-left margin-10">
+                        <li><label id="lbPrimary" class="frame-label"> Mode 属性为 primary</label></li>
+                        <li><label id="lbInfo" class="frame-label"> Mode 属性为 info</label></li>
+                        <li><label id="lbSuccess" class="frame-label"> Mode 属性为 success</label></li>
+                        <li><label id="lbWarning" class="frame-label"> Mode 属性为 warning</label></li>
+                        <li><label id="lbImportant" class="frame-label"> Mode 属性为 important</label></li>
+                        <li><label id="lbError" class="frame-label"> Mode 属性为 error</label></li>
+                        <li><label id="lbInverse" class="frame-label"> Mode 属性为 inverse</label></li>
+                    </ul>
+                    <ul class="list-unstyled spaced pull-left margin-10">
+                        <li><label id="lbNormal" class="frame-label"> Size 属性为 normal</label></li>
+                        <li><label id="lbSmall" class="frame-label"> Size 属性为 small</label></li>
+                        <li><label id="lbLarge" class="frame-label"> Size 属性为 large</label></li>
+                        <li><label id="lbXLarge" class="frame-label"> Size 属性为 xlarge</label></li>
+                    </ul>
+                    <ul class="list-unstyled spaced pull-left margin-10">
+                        <li><label id="lbLeftIcon" class="frame-label"> 左侧带图标(IconSite 属性为 left)</label></li>
+                        <li><label id="lbSideIcon" class="frame-label"> 两侧带图标(IconSite 属性为 site) </label></li>
+                        <li><label id="lbRightIcon" class="frame-label"> 右侧带图标(IconSite 属性为 right) </label></li>
+                        <li><label id="lbOnlyIcon" class="frame-label"></label></li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

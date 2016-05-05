@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8B036562-14D2-4F65-A54D-18C950E82836}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Frame</RootNamespace>
+    <AssemblyName>Frame</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Lib\log4net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Frame.Ref\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\Frame.Ref\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\Frame.Ref\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Frame.Ref\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity">
+      <HintPath>..\..\..\Lib\frame\NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Lib\SQLite\x86\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\App.cs" />
+    <Compile Include="Core\AppConfig.cs" />
+    <Compile Include="Core\AppModule.cs" />
+    <Compile Include="Core\AppSession.cs" />
+    <Compile Include="Core\AppUtility.cs" />
+    <Compile Include="Core\Collection\NameObjectCollection.cs" />
+    <Compile Include="Core\Convertor.cs" />
+    <Compile Include="Core\DataSerialize.cs" />
+    <Compile Include="Core\Extensions\ByteExtensions.cs" />
+    <Compile Include="Core\Extensions\CollectionExtensions.cs" />
+    <Compile Include="Core\Extensions\DataReaderExtenstions.cs" />
+    <Compile Include="Core\Extensions\DataSetExtenstions.cs" />
+    <Compile Include="Core\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Core\Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Core\Extensions\FastReflectionExtensions.cs" />
+    <Compile Include="Core\Extensions\ServiceLocatorExtensions.cs" />
+    <Compile Include="Core\Extensions\StringExtensions.cs" />
+    <Compile Include="Core\Extensions\TypeExtenstions.cs" />
+    <Compile Include="Core\IAppHttpModule.cs" />
+    <Compile Include="Core\Ioc\IObjectContainer.cs" />
+    <Compile Include="Core\Ioc\ObjectContainerException.cs" />
+    <Compile Include="Core\Ioc\ObjectNotFoundException.cs" />
+    <Compile Include="Core\Ioc\UnityObjectContainer.cs" />
+    <Compile Include="Core\Reflection\Fast\AssemblyAccessor.cs" />
+    <Compile Include="Core\Reflection\Fast\AssemblyBase.cs" />
+    <Compile Include="Core\Reflection\Fast\AssemblyException.cs" />
+    <Compile Include="Core\Reflection\Fast\AssemblyFastLoader.cs" />
+    <Compile Include="Core\Reflection\Fast\RemoteLoader.cs" />
+    <Compile Include="Core\Security\HMACSHA1EncrpytProvider.cs" />
+    <Compile Include="Core\Security\SHAEncrpytProvider.cs" />
+    <Compile Include="Core\SimpleListener.cs" />
+    <Compile Include="Core\SingleProvider.cs" />
+    <Compile Include="Core\Utility\UriParsingHelper.cs" />
+    <Compile Include="OS\WPF\Modularity\ModuleCatalog.cs" />
+    <Compile Include="OS\WPF\RegionMemberLifetimeAttribute.cs" />
+    <Compile Include="OS\WPF\Regions\AllActiveRegion.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\AutoPopulateRegionBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\BindRegionContextToDependencyObjectBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\ClearChildViewsRegionBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\DelayedRegionCreationBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\RegionActiveAwareBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\RegionCreationException.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\RegionManagerRegistrationBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\RegionMemberLifetimeBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\SyncRegionContextWithHostBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\ContentControlRegionAdapter.cs" />
+    <Compile Include="OS\WPF\Regions\DefaultRegionManagerAccessor.cs" />
+    <Compile Include="OS\WPF\Regions\ItemsControlRegionAdapter.cs" />
+    <Compile Include="OS\WPF\Regions\Region.cs" />
+    <Compile Include="OS\WPF\Regions\RegionAdapterMappings.cs" />
+    <Compile Include="OS\WPF\Regions\RegionBehaviorFactory.cs" />
+    <Compile Include="OS\WPF\Regions\RegionContext.cs" />
+    <Compile Include="OS\WPF\Regions\RegionManager.cs" />
+    <Compile Include="OS\WPF\Regions\RegionNavigationContentLoader.cs" />
+    <Compile Include="OS\WPF\Regions\SingleActiveRegion.cs" />
+    <Compile Include="OS\WPF\Regions\ViewsCollection.cs" />
+    <Compile Include="OS\WPF\SyncActiveStateAttribute.cs" />
+    <Compile Include="OS\WPF\Bootstrapper.cs" />
+    <Compile Include="OS\WPF\Commands\ButtonBaseClickCommandBehavior.cs" />
+    <Compile Include="OS\WPF\Commands\Click.cs" />
+    <Compile Include="OS\WPF\Commands\CommandBehaviorBase.cs" />
+    <Compile Include="OS\WPF\Commands\CompositeCommand.cs" />
+    <Compile Include="OS\WPF\Commands\DelegateCommand.cs" />
+    <Compile Include="OS\WPF\Commands\DelegateCommandBase.cs" />
+    <Compile Include="OS\WPF\Commands\WeakEventHandlerManager.cs" />
+    <Compile Include="OS\WPF\Events\BackgroundEventSubscription.cs" />
+    <Compile Include="OS\WPF\Events\CompositePresentationEvent.cs" />
+    <Compile Include="OS\WPF\Events\DataEventArgs.cs" />
+    <Compile Include="OS\WPF\Events\DefaultDispatcher.cs" />
+    <Compile Include="OS\WPF\Events\DispatcherEventSubscription.cs" />
+    <Compile Include="OS\WPF\Events\EventAggregator.cs" />
+    <Compile Include="OS\WPF\Events\EventBase.cs" />
+    <Compile Include="OS\WPF\Events\EventSubscription.cs" />
+    <Compile Include="OS\WPF\Events\IDispatcherFacade.cs" />
+    <Compile Include="OS\WPF\Events\IEventAggregator.cs" />
+    <Compile Include="OS\WPF\Events\IEventSubscription.cs" />
+    <Compile Include="OS\WPF\Events\SubscriptionToken.cs" />
+    <Compile Include="OS\WPF\Events\ThreadOption.cs" />
+    <Compile Include="OS\WPF\Extensions\NavigationAsyncExtensions.cs" />
+    <Compile Include="OS\WPF\Extensions\RegionManagerExtensions.cs" />
+    <Compile Include="OS\WPF\IActiveAware.cs" />
+    <Compile Include="Core\Utility\UriQuery.cs" />
+    <Compile Include="OS\WPF\ObservableObject.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\IHostAwareRegionBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\Behaviors\SelectorItemsSourceSyncBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\IConfirmNavigationRequest.cs" />
+    <Compile Include="OS\WPF\Regions\INavigateAsync.cs" />
+    <Compile Include="OS\WPF\Regions\INavigationAware.cs" />
+    <Compile Include="OS\WPF\Regions\IRegion.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionAdapter.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionBehaviorCollection.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionBehaviorFactory.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionCollection.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionManager.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionManagerAccessor.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionMemberLifetime.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionNavigationContentLoader.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionNavigationJournal.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionNavigationJournalEntry.cs" />
+    <Compile Include="OS\WPF\Regions\IRegionNavigationService.cs" />
+    <Compile Include="OS\WPF\Regions\ItemMetadata.cs" />
+    <Compile Include="OS\WPF\Regions\NavigationContext.cs" />
+    <Compile Include="OS\WPF\Regions\NavigationResult.cs" />
+    <Compile Include="OS\WPF\Regions\RegionAdapterBase.cs" />
+    <Compile Include="OS\WPF\Regions\RegionBehavior.cs" />
+    <Compile Include="OS\WPF\Regions\RegionBehaviorCollection.cs" />
+    <Compile Include="OS\WPF\Regions\RegionNavigationEventArgs.cs" />
+    <Compile Include="OS\WPF\Regions\RegionNavigationFailedEventArgs.cs" />
+    <Compile Include="OS\WPF\Regions\RegionNavigationJournal.cs" />
+    <Compile Include="OS\WPF\Regions\RegionNavigationJournalEntry.cs" />
+    <Compile Include="OS\WPF\Regions\RegionNavigationService.cs" />
+    <Compile Include="OS\WPF\Regions\SelectorRegionAdapter.cs" />
+    <Compile Include="OS\WPF\Regions\UpdateRegionsException.cs" />
+    <Compile Include="OS\WPF\Unity\UnityBootstrapper.cs" />
+    <Compile Include="OS\WPF\ViewModel\ErrorsContainer.cs" />
+    <Compile Include="OS\WPF\ViewModel\NotificationObject.cs" />
+    <Compile Include="OS\WPF\ViewModel\PropertySupport.cs" />
+    <Compile Include="Service\Client\Ajax.cs" />
+    <Compile Include="Service\Client\AjaxOptions.cs" />
+    <Compile Include="Service\Client\AjaxRequest.cs" />
+    <Compile Include="Service\Client\AjaxResponse.cs" />
+    <Compile Include="Service\Client\AjaxStage.cs" />
+    <Compile Include="Service\Client\Attributes\DataEntityAttribute.cs" />
+    <Compile Include="Service\Client\Attributes\DataPropertyAttribute.cs" />
+    <Compile Include="Service\Client\ColumnMapTreeNode.cs" />
+    <Compile Include="Service\Client\DataService.cs" />
+    <Compile Include="Service\Client\DataValue.cs" />
+    <Compile Include="Service\Client\HttpClient.cs" />
+    <Compile Include="Service\Client\NamedFileStream.cs" />
+    <Compile Include="Service\Client\ReturnResult.cs" />
+    <Compile Include="Service\Client\ReturnValueConverter.cs" />
+    <Compile Include="Service\Server\Attributes\ServiceAttribute.cs" />
+    <Compile Include="Service\Server\Attributes\ServiceMethodAttribute.cs" />
+    <Compile Include="Service\Server\Attributes\ServiceParamAttribute.cs" />
+    <Compile Include="Service\Server\Attributes\PageAttribute.cs" />
+    <Compile Include="Service\Server\Attributes\ActionAttribute.cs" />
+    <Compile Include="Service\Server\CommonServices\DataService.cs" />
+    <Compile Include="Service\Server\Constants.cs" />
+    <Compile Include="Service\Server\Core\Page.cs" />
+    <Compile Include="Service\Server\Core\PageResult.cs" />
+    <Compile Include="Service\Server\Core\Result.cs" />
+    <Compile Include="Service\Server\Core\Service.cs" />
+    <Compile Include="Service\Server\Core\ServiceContext.cs" />
+    <Compile Include="Service\Server\Core\ServiceHandler.cs" />
+    <Compile Include="Service\Server\Core\ServiceMethod.cs" />
+    <Compile Include="Service\Server\Core\PageAction.cs" />
+    <Compile Include="Service\Server\Core\PageContext.cs" />
+    <Compile Include="Service\Server\Core\PageHandler.cs" />
+    <Compile Include="Service\Server\Extensions\ParameterInfoExtensions.cs" />
+    <Compile Include="Service\Server\HttpModule.cs" />
+    <Compile Include="Service\Server\IPage.cs" />
+    <Compile Include="Service\Server\IPageContainer.cs" />
+    <Compile Include="Service\Server\IPageContext.cs" />
+    <Compile Include="Service\Server\IPageHandler.cs" />
+    <Compile Include="Service\Server\IService.cs" />
+    <Compile Include="Service\Server\IServiceCommand.cs" />
+    <Compile Include="Service\Server\IServiceCommandResolver.cs" />
+    <Compile Include="Service\Server\IServiceContainer.cs" />
+    <Compile Include="Service\Server\IServiceContext.cs" />
+    <Compile Include="Service\Server\IServiceHandler.cs" />
+    <Compile Include="Service\Server\PageContainer.cs" />
+    <Compile Include="Service\Server\PageRoute.cs" />
+    <Compile Include="Service\Server\ServiceContainer.cs" />
+    <Compile Include="Service\Server\ServiceEngine.cs" />
+    <Compile Include="Service\Server\ServiceException.cs" />
+    <Compile Include="Service\Server\ServiceRoute.cs" />
+    <Compile Include="Service\Server\SqlGe\SqlCommand.cs" />
+    <Compile Include="Service\Server\SqlGe\SqlCommandResolver.cs" />
+    <Compile Include="Service\Server\SqlGe\SqlResult.cs" />
+    <Compile Include="Service\Server\PageEngine.cs" />
+    <Compile Include="Service\ServiceHttp\ServiceHttpFactory.cs" />
+    <Compile Include="Service\ServiceHttp\ServiceSoap.cs" />
+    <Compile Include="Service\ServiceHttp\ServiceSoapFactory.cs" />
+    <Compile Include="OS\AssemblyInfo.cs" />
+    <Compile Include="OS\Window\Bootstrapper.cs" />
+    <Compile Include="OS\ListDictionary.cs" />
+    <Compile Include="OS\Modularity\AssemblyResolver.cs" />
+    <Compile Include="OS\Modularity\Exceptions\CyclicDependencyFoundException.cs" />
+    <Compile Include="OS\Modularity\Exceptions\DuplicateModuleException.cs" />
+    <Compile Include="OS\Modularity\Exceptions\ModuleNotFoundException.cs" />
+    <Compile Include="OS\Modularity\Exceptions\ModuleTypeLoaderNotFoundException.cs" />
+    <Compile Include="OS\Modularity\Exceptions\ModuleTypeLoadingException.cs" />
+    <Compile Include="OS\Modularity\FileModuleTypeLoader.cs" />
+    <Compile Include="OS\Modularity\IAssemblyResolver.cs" />
+    <Compile Include="OS\Modularity\IModule.cs" />
+    <Compile Include="OS\Modularity\IModuleCatalog.cs" />
+    <Compile Include="OS\Modularity\IModuleCatalogItem.cs" />
+    <Compile Include="OS\Modularity\IModuleInitializer.cs" />
+    <Compile Include="OS\Modularity\IModuleManager.cs" />
+    <Compile Include="OS\Modularity\IModuleTypeLoader.cs" />
+    <Compile Include="OS\Modularity\InitializationMode.cs" />
+    <Compile Include="OS\Modularity\LoadModuleCompletedEventArgs.cs" />
+    <Compile Include="OS\Modularity\Exceptions\ModularityException.cs" />
+    <Compile Include="OS\Window\Modularity\ModuleCatalog.cs" />
+    <Compile Include="OS\Modularity\ModuleCatalogItemCollection.cs" />
+    <Compile Include="OS\Modularity\ModuleDependencySolver.cs" />
+    <Compile Include="OS\Modularity\ModuleDownloadProgressChangedEventArgs.cs" />
+    <Compile Include="OS\Modularity\ModuleInfo.cs" />
+    <Compile Include="OS\Modularity\ModuleInfoGroup.cs" />
+    <Compile Include="OS\Modularity\Exceptions\ModuleInitializeException.cs" />
+    <Compile Include="OS\Modularity\ModuleInitializer.cs" />
+    <Compile Include="OS\Modularity\ModuleManager.cs" />
+    <Compile Include="OS\Modularity\ModuleState.cs" />
+    <Compile Include="OS\DelegateReference.cs" />
+    <Compile Include="OS\IDelegateReference.cs" />
+    <Compile Include="OS\Window\Regions\IRegion.cs" />
+    <Compile Include="OS\Window\Regions\IRegionCollection.cs" />
+    <Compile Include="OS\Window\Regions\IRegionManager.cs" />
+    <Compile Include="OS\IRegionViewRegistry.cs" />
+    <Compile Include="OS\Window\Regions\ItemMetadata.cs" />
+    <Compile Include="OS\IViewsCollection.cs" />
+    <Compile Include="OS\Window\Regions\Region.cs" />
+    <Compile Include="OS\Window\Regions\RegionCollection.cs" />
+    <Compile Include="OS\Window\Regions\RegionManager.cs" />
+    <Compile Include="OS\Window\Regions\RegionManagerExtensions.cs" />
+    <Compile Include="OS\RegionViewRegistry.cs" />
+    <Compile Include="OS\ViewRegisteredEventArgs.cs" />
+    <Compile Include="OS\ViewRegistrationException.cs" />
+    <Compile Include="OS\Window\Regions\ViewsCollection.cs" />
+    <Compile Include="OS\ViewSortHintAttribute.cs" />
+    <Compile Include="OS\WeakDelegatesManager.cs" />
+    <Compile Include="OS\Window\Unity\UnityBootstrapper.cs" />
+    <Compile Include="OS\Unity\UnityBootstrapperExtension.cs" />
+    <Compile Include="OS\Unity\UnityContainerHelper.cs" />
+    <Compile Include="OS\Unity\UnityServiceLocatorAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Reflection\AssemblyBuilder.cs" />
+    <Compile Include="Core\Reflection\Assemblyer.cs" />
+    <Compile Include="Core\Reflection\AssemblyFastCache.cs" />
+    <Compile Include="Core\Reflection\FastReflectionCache.cs" />
+    <Compile Include="Core\Reflection\Fast\ConstructorAccessor.cs" />
+    <Compile Include="Core\Reflection\Fast\ConstructorAccessorCache.cs" />
+    <Compile Include="Core\Reflection\Fast\ConstructorAccessorFactory.cs" />
+    <Compile Include="Core\Reflection\Fast\FastReflectionCaches.cs" />
+    <Compile Include="Core\Reflection\Fast\FastReflectionFactories.cs" />
+    <Compile Include="Core\Reflection\Fast\FieldAccessor.cs" />
+    <Compile Include="Core\Reflection\Fast\FieldAccessorCache.cs" />
+    <Compile Include="Core\Reflection\Fast\FieldAccessorFactory.cs" />
+    <Compile Include="Core\Reflection\Fast\IConstructorAccessor.cs" />
+    <Compile Include="Core\Reflection\Fast\IFieldAccessor.cs" />
+    <Compile Include="Core\Reflection\Fast\IMethodAccessor.cs" />
+    <Compile Include="Core\Reflection\Fast\IPropertyAccessor.cs" />
+    <Compile Include="Core\Reflection\Fast\MethodAccessor.cs" />
+    <Compile Include="Core\Reflection\Fast\MethodAccessorCache.cs" />
+    <Compile Include="Core\Reflection\Fast\MethodAccessorFactory.cs" />
+    <Compile Include="Core\Reflection\Fast\PropertyAccessor.cs" />
+    <Compile Include="Core\Reflection\Fast\PropertyAccessorCache.cs" />
+    <Compile Include="Core\Reflection\Fast\PropertyAccessorFactory.cs" />
+    <Compile Include="Core\Reflection\IFastReflectionCache.cs" />
+    <Compile Include="Core\Reflection\IFastReflectionFactory.cs" />
+    <Compile Include="Core\Security\DESEncrpytProvider.cs" />
+    <Compile Include="Core\Security\MD5EncrpytProvider.cs" />
+    <Compile Include="Core\Session\ISessionProvider.cs" />
+    <Compile Include="Core\Session\ISessionState.cs" />
+    <Compile Include="Core\Session\SessionProvider.cs" />
+    <Compile Include="Core\Session\SessionState.cs" />
+    <Compile Include="Core\Threading\ThreadContext.cs" />
+    <Compile Include="DataStore\BaseDao.cs" />
+    <Compile Include="DataStore\DaoFactory.cs" />
+    <Compile Include="DataStore\DataBaseDao.cs" />
+    <Compile Include="DataStore\Extensions\DataReaderExtenstions.cs" />
+    <Compile Include="DataStore\Extensions\PropertyExtenstions.cs" />
+    <Compile Include="DataStore\GenericDao.cs" />
+    <Compile Include="DataStore\IDaoProvider.cs" />
+    <Compile Include="DataStore\ISqlGeCommand.cs" />
+    <Compile Include="DataStore\ISqlGeParameters.cs" />
+    <Compile Include="DataStore\ISqlGeSource.cs" />
+    <Compile Include="DataStore\ISqlGeStatement.cs" />
+    <Compile Include="DataStore\Map\Attributes\ColumnAttribute.cs" />
+    <Compile Include="DataStore\Map\Attributes\NamedAttribute.cs" />
+    <Compile Include="DataStore\Map\Attributes\PrimaryKeyAttribute.cs" />
+    <Compile Include="DataStore\Map\Attributes\TableAttribute.cs" />
+    <Compile Include="DataStore\Provider\DaoProvider.cs" />
+    <Compile Include="DataStore\Provider\SqliteProvider.cs" />
+    <Compile Include="DataStore\Provider\SqlServerProvider.cs" />
+    <Compile Include="DataStore\SqlGeClient\Clauses\DbNamedParameterClause.cs" />
+    <Compile Include="DataStore\SqlGeClient\Clauses\DynamicClause.cs" />
+    <Compile Include="DataStore\SqlGeClient\Clauses\NamedParameterClause.cs" />
+    <Compile Include="DataStore\SqlGeClient\Clauses\ParamClause.cs" />
+    <Compile Include="DataStore\SqlGeClient\Clauses\SqlGeClause.cs" />
+    <Compile Include="DataStore\SqlGeClient\Clauses\TextClause.cs" />
+    <Compile Include="DataStore\SqlGeClient\Clauses\ValueParameterClause.cs" />
+    <Compile Include="DataStore\SqlGeClient\ParametersWrapper.cs" />
+    <Compile Include="DataStore\SqlGeClient\Parameters\BaseGeParameters.cs" />
+    <Compile Include="DataStore\SqlGeClient\Parameters\DictionaryGeParameters.cs" />
+    <Compile Include="DataStore\SqlGeClient\Parameters\GenericGeParameters.cs" />
+    <Compile Include="DataStore\SqlGeClient\Parameters\ObjectGeParameters.cs" />
+    <Compile Include="DataStore\SqlGeClient\Parameters\SqlGeParameters.cs" />
+    <Compile Include="DataStore\SqlGeClient\SqlGeCommand.cs" />
+    <Compile Include="DataStore\SqlGeClient\SqlGeCommandBuilder.cs" />
+    <Compile Include="DataStore\SqlGeClient\SqlGeParser.cs" />
+    <Compile Include="DataStore\SqlGeClient\SqlGeSource.cs" />
+    <Compile Include="DataStore\SqlGeClient\SqlGeStatement.cs" />
+    <Compile Include="Data\CacheMemory.cs" />
+    <Compile Include="Data\ConnectionWrapper.cs" />
+    <Compile Include="Data\DataBase.cs" />
+    <Compile Include="Data\DataBaseFactory.cs" />
+    <Compile Include="Data\DataBaseLibraryContainer.cs" />
+    <Compile Include="Data\DataReaderWrapper.cs" />
+    <Compile Include="Data\ParamCacheMemory.cs" />
+    <Compile Include="Data\ParameterCache.cs" />
+    <Compile Include="Data\RefCountingDataReader.cs" />
+    <Compile Include="Data\SqlGe\SqlGeClient.cs" />
+    <Compile Include="Data\SqliteGe\SqliteGeClient.cs" />
+    <Compile Include="Data\TransConnectionWrapper.cs" />
+    <Compile Include="Data\UpdateBehavior.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataStore\Utility\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

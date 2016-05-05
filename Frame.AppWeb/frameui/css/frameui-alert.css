@@ -1,0 +1,40 @@
+﻿/*
+ * FrameUI v2.1.0
+ *
+ * 提示消息Alert样式.(13)
+ *
+ * Copyright 2015 zlx
+ *
+ */
+.frame-alert{padding:5px;margin-bottom:20px;border:1px solid #eaeaea;font-size:14px;border-radius: 0px;vertical-align: middle;}
+.frame-alert button.close {padding-top: 4px\9; pcursor: pointer; background: none repeat scroll 0% 0% transparent;border: 0px none;}
+.frame-alert button.close:hover { opacity: 0.5; }
+
+.frame-alert h4{margin-top:0;color:inherit;}
+.frame-alert .frame-alert-link{font-weight:bold;}
+.frame-alert>p,.frame-alert>ul{margin-bottom:0;}
+.frame-alert>p>[class*="icon-"] { margin:0 2px;}
+.frame-alert>p+p{margin-top:5px;}
+
+.frame-alert-small{font-size:12px;line-height:18px; padding:2px 4px;}
+.frame-alert.frame-alert-small button.close{ font-size:12px; padding-top:4px;}
+
+.frame-alert-large{font-size:16px;line-height:20px; padding:10px;}
+.frame-alert.frame-alert-large button.close{ font-size:18px; padding-top:4px;}
+
+/* 不同类型的消息样式 */
+.frame-alert-success{color:#468847;background-color:#dff0d8;border-color:#d6e9c6;}
+.frame-alert-success hr{border-top-color:#c9e2b3;}
+.frame-alert-success .frame-alert-link{color:#356635;}
+
+.frame-alert-info{color:#3a87ad;background-color:#d9edf7;border-color:#bce8f1;}
+.frame-alert-info hr{border-top-color:#a6e1ec;}
+.frame-alert-info .frame-alert-link{color:#2d6987;}
+
+.frame-alert-warning{color:#c09853;background-color:#fcf8e3;border-color:#fbeed5;}
+.frame-alert-warning hr{border-top-color:#f8e5be;}
+.frame-alert-warning .frame-alert-link{color:#a47e3c;}
+
+.frame-alert-error{color:#b94a48;background-color:#f2dede;border-color:#eed3d7;}
+.frame-alert-error hr{border-top-color:#e6c1c7;}
+.frame-alert-error .frame-alert-link{color:#953b39;}

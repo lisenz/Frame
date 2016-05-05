@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Resizable</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForResizable").Tabs({ Plain: true });
+            $("#resizable").Resizable();
+            $("#resizeForLeft").Resizable({ Handles: "w,sw,nw" });
+            $("#resizeForDown").Resizable({ Handles: "s,sw,se" });
+
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>Resizable</h1>
+        </div>
+        <div class="row">
+            <div id="tabForResizable">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">
+                    Resizable 控件可用于将目标元素创建为一个可调整尺寸大小的元素，继而对目标元素的尺寸大小进行调整。
+                    <br />通过在 <span class="red smaller-75">div</span> 或其他块状标签上添加 <span class="red smaller-75">.frame-resizable</span> ，
+                    标识为调整尺寸元素，通过使用 <span class="red smaller-75">var resizable = $("#页面标签id").Resizable(options);</span> 
+                    这样一行代码，即可将页面指定ID的标签通过 <span class="red smaller-75">options</span> 
+                    相关属性的配置生成相应的调整尺寸大小对象。<br />
+                    </p>
+                    <div class="space"></div>                 
+                    <i class="icon-bookmark dark"></i> Options 属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-50">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Handles</td>
+                                <td>调整大小的鼠标缩放方向。</td>
+                                <td>String</td>
+                                <td>n[north:北],e[east:东],s[south:南],w[west:西],ne[东北],se[东南],sw[西南],nw[西北]</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Animate</td>
+                                <td>是否使用动画效果。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Disabled</td>
+                                <td>是否禁止调整目标元素的尺寸大小。如果设置为true将禁止调整元素尺寸。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td class="center">MinWidth</td>
+                                <td>目标元素可调整的尺寸最小宽度值。</td>
+                                <td>Number</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td class="center">MinHeight</td>
+                                <td>目标元素可调整的尺寸最小高度值。</td>
+                                <td>Number</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td class="center">MaxWidth</td>
+                                <td>目标元素可调整的尺寸最大宽度值。</td>
+                                <td>Number</td>
+                                <td>2000</td>
+                            </tr>
+                            <tr>
+                                <td class="center">MaxHeight</td>
+                                <td>目标元素可调整的尺寸最大高度值。</td>
+                                <td>Number</td>
+                                <td>2000</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Scope</td>
+                                <td>元素可进行调整尺寸的边界值。</td>
+                                <td>Number</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> Options 事件属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-16">
+				                    <i class="icon-caret-right blue"></i>
+				                    名称
+			                    </th>
+			                    <th class="width-50">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">OnStartResize</td>
+                                <td>current[目标元素当前移动的信息对象]，e[mousedown鼠标事件对象]</td>
+                                <td>当开始对目标元素进行调整尺寸大小时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnResize</td>
+                                <td>current[目标元素当前移动的信息对象]，e[mousemove鼠标事件对象]</td>
+                                <td>当对目标元素的尺寸进行调整时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnStopResize</td>
+                                <td>current[目标元素当前移动的信息对象]，e[mouseup鼠标事件对象]</td>
+                                <td>当停止对目标元素尺寸进行调整时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnEndResize</td>
+                                <td>e[mouseup鼠标事件对象]</td>
+                                <td>当完成对目标元素尺寸调整时触发。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> Resizable 对象方法说明见下表：<br />
+                    调用：<span class="red smaller-75">$("id").Frame().方法名();</span>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-16">
+				                    <i class="icon-caret-right blue"></i>
+				                    方法
+			                    </th>
+			                    <th class="width-50">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Enable</td>
+                                <td>none</td>
+                                <td>启用对目标元素进行尺寸调整的功能。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Disable</td>
+                                <td>none</td>
+                                <td>禁用对目标元素进行尺寸调整的功能。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;div id="resizable" style="width:100px;height:100px; top:10px; background-color:#87b87f;"&gt;&lt;/div&gt;
+&lt;div id="resizeForLeft" style="width:100px;height:100px; top:110px; left:200px; background-color:#93cbf9; color:#fff;"&gt;只能向左拉动改变尺寸&lt;/div&gt;
+&lt;div id="resizeForDown" style="width:100px;height:100px; top:210px; left:400px; background-color:#a069c3; color:#fff;"&gt;只能向下拉动改变尺寸&lt;/div&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#resizable").Resizable();
+$("#resizeForLeft").Resizable({ Handles: "w,sw,nw" });
+$("#resizeForDown").Resizable({ Handles: "s,sw,se" });</pre>
+                </div>
+                <div title="示例">
+                    <div style="height:800px; width:100%;">
+                        <div id="resizable" style="width:100px;height:100px; top:10px; background-color:#87b87f;"></div>
+                        <div id="resizeForLeft" style="width:100px;height:100px; top:110px; left:200px; background-color:#93cbf9; color:#fff;">只能向左拉动改变尺寸</div>
+                        <div id="resizeForDown" style="width:100px;height:100px; top:210px; left:400px; background-color:#a069c3; color:#fff;">只能向下拉动改变尺寸</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

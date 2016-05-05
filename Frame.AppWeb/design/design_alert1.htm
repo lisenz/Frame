@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Alert</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/button.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/alert.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#alert").Alert({ Icon: "icon-question-sign", Mode: "success" ,Width:200 });
+
+            $("#btnAlert").click(function () {
+                $("#alert").Frame().SetContent("9393939393");
+                $("#alert").Frame().Toggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>Alert</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div id="alert">sdfsdfsdf</div>
+                        <button id="btnAlert">Alert</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

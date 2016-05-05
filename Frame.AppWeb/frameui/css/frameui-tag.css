@@ -1,0 +1,47 @@
+﻿/*
+ * FrameUI v2.1.0
+ *
+ * Tag样式.(6)
+ *
+ * Copyright 2015 zlx
+ *
+ */
+.frame-tags{list-style: none; font-size: 0; line-height: 0; padding: 5px 0 0 0; margin-bottom: 18px;}
+.frame-tags.frame-tags-bordered { border: 1px solid #999999; padding-left: 5px; }
+
+.frame-tags > li,
+.frame-tags > a {
+  font-size: 12px;
+  margin: 0 5px 5px 0;
+  display: inline-block;
+  overflow: hidden;
+  color: #000000;
+  background: #f7f7f7;
+  padding: 0 7px;
+  height: 22px;
+  line-height: 20px;
+  border: 1px solid #dedede;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-transition: color 0.2s ease-out;
+  -moz-transition: color 0.2s ease-out;
+  -o-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+.frame-tags > li:hover,.frame-tags > a:hover {color: #28a3ef;}
+
+.frame-tags > li.frame-tags-selected,.frame-tags > a.frame-tags-selected {color: #ffffff;background: #28a3ef;border-color: #1299ec;}
+.frame-tags > li.frame-tags-selected:hover,.frame-tags > a.frame-tags-selected:hover {background: #4cb9fc;border-color: #33affc;}
+
+.frame-tags > li.with-x,.frame-tags > a.with-x {cursor: default;}
+.frame-tags > li.with-x i,.frame-tags > a.with-x i {
+    margin-left: 10px;
+    cursor: pointer;
+    font: normal 14px tahoma;
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    color:#999;
+}
+.frame-tags > li.frame-tags-selected.with-x i,.frame-tags > a.frame-tags-selected.with-x i { color:#fff;}
+.frame-tags > li.with-x i:hover,.frame-tags > a.with-x i:hover {color:Red;}

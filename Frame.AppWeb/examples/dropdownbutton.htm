@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DropDownButton</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForDropDownButton").Tabs({ Plain: true });
+
+            $("#btnGroup").DropDownButton({
+                Text: "Action Button", Mode: "success",
+                MenuItems: [
+                { Text: "菜单项1" },
+                { Text: "菜单项2" },
+                { Text: "菜单项3" },
+                { Divider: true },
+                { Text: "菜单项4" }
+                ],
+                OnItemClick: function (text, idx) {
+                    $.Messager.Alert("系统消息", text, "info");
+                }
+            });
+            $("#btnLargeGroup").DropDownButton({
+                Size: "large", Text: "Large Action Button", Mode: "success",
+                MenuItems: [
+                { Text: "菜单项1" },
+                { Text: "菜单项2" },
+                { Text: "菜单项3" },
+                { Divider: true },
+                { Text: "菜单项4" }
+                ],
+                OnItemClick: function (text, idx) {
+                    $.Messager.Alert("系统消息", text, "info");
+                }
+            });
+            $("#btnSmallGroup").DropDownButton({
+                Size: "small", Text: "Small Action Button", Mode: "success",
+                MenuItems: [
+                { Text: "菜单项1" },
+                { Text: "菜单项2" },
+                { Text: "菜单项3" },
+                { Divider: true },
+                { Text: "菜单项4" }
+                ],
+                OnItemClick: function (text, idx) {
+                    $.Messager.Alert("系统消息", text, "info");
+                }
+            });
+            $("#btnSmallerGroup").DropDownButton({
+                Size: "smaller", Text: "Smaller Action Button", Mode: "success",
+                MenuItems: [
+                { Text: "菜单项1" },
+                { Text: "菜单项2" },
+                { Text: "菜单项3" },
+                { Divider: true },
+                { Text: "菜单项4" }
+                ],
+                OnItemClick: function (text, idx) {
+                    $.Messager.Alert("系统消息", text, "info");
+                }
+            });
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>DropDownButton</h1>
+        </div>
+        <div class="row">
+            <div id="tabForDropDownButton">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">
+                    DropDownButton 用于创建下拉菜单按钮，通过对指定 <span class="red smaller-75">div</span> 元素使用 <span class="red smaller-75">var ddButton = $("#目标元素id").DropDownButton(options);</span> 这样一行代码，即可将目标元素生成为下拉菜单按钮。<br />
+                    有四种不同的尺寸：smaller，small，large。当不指定尺寸时，以标准尺寸显示。<br />
+                    若需要设置其他背景色，有7种不同的背景色：primary，info，error，success，warning，inverse，default。
+                    </p>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> DropDownButton 对象的 Options 属性详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Text</td>
+                                <td>按钮的显示文本。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Size</td>
+                                <td>按钮的尺寸。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Mode</td>
+                                <td>按钮菜单的背景色模式，有7种模式可选：info，primary，success，warning，default，error，inverse。</td>
+                                <td>String</td>
+                                <td>primary</td>
+                            </tr>
+                            <tr>
+                                <td class="center">MenuItems</td>
+                                <td>按钮的下拉菜单项对象集合。菜单项对象格式：{Text，Divider}。Divider 属性标识是否为分割线。</td>
+                                <td>Array</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Disabled</td>
+                                <td>设置一个值，该值标识菜单按钮是否禁用。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> Options 事件属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    名称
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">OnItemClick</td>
+                                <td>text，idx</td>
+                                <td>右键菜单菜单项的单击事件。事件传递菜单项的文本内容及其对应所在菜单中的索引值作为参数。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> DropDownButton 对象方法说明见下表：<br />
+                    调用：<span class="red smaller-75">$("id").Frame().方法名();</span>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    方法
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Disable</td>
+                                <td>none</td>
+                                <td>禁用下拉菜单按钮。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Enable</td>
+                                <td>none</td>
+                                <td>启用下拉菜单按钮。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;div id="btnGroup" class="frame-button-group"&gt;&lt;/div&gt;
+&lt;div id="btnLargeGroup" class="frame-button-group"&gt;&lt;/div&gt;
+&lt;div id="btnSmallGroup" class="frame-button-group"&gt;&lt;/div&gt;
+&lt;div id="btnSmallerGroup" class="frame-button-group"&gt;&lt;/div&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#btnGroup").DropDownButton({
+    Text: "Action Button", Mode: "success",
+    MenuItems: [
+    { Text: "菜单项1" },
+    { Text: "菜单项2" },
+    { Text: "菜单项3" },
+    { Divider: true },
+    { Text: "菜单项4" }
+    ],
+    OnItemClick: function (text, idx) {
+        $.Messager.Alert("系统消息", text, "info");
+    }
+});
+$("#btnLargeGroup").DropDownButton({
+    Size: "large", Text: "Large Action Button", Mode: "success",
+    MenuItems: [
+    { Text: "菜单项1" },
+    { Text: "菜单项2" },
+    { Text: "菜单项3" },
+    { Divider: true },
+    { Text: "菜单项4" }
+    ],
+    OnItemClick: function (text, idx) {
+        $.Messager.Alert("系统消息", text, "info");
+    }
+});
+$("#btnSmallGroup").DropDownButton({
+    Size: "small", Text: "Small Action Button", Mode: "success",
+    MenuItems: [
+    { Text: "菜单项1" },
+    { Text: "菜单项2" },
+    { Text: "菜单项3" },
+    { Divider: true },
+    { Text: "菜单项4" }
+    ],
+    OnItemClick: function (text, idx) {
+        $.Messager.Alert("系统消息", text, "info");
+    }
+});
+$("#btnSmallerGroup").DropDownButton({
+    Size: "smaller", Text: "Smaller Action Button", Mode: "success",
+    MenuItems: [
+    { Text: "菜单项1" },
+    { Text: "菜单项2" },
+    { Text: "菜单项3" },
+    { Divider: true },
+    { Text: "菜单项4" }
+    ],
+    OnItemClick: function (text, idx) {
+        $.Messager.Alert("系统消息", text, "info");
+    }
+});</pre>
+                </div>
+                <div title="示例">
+                    <div class="space"></div>
+                    <div style="height:300px;">
+                        <div id="btnGroup" class="frame-button-group"></div>
+                        <div id="btnLargeGroup" class="frame-button-group"></div>
+                        <div id="btnSmallGroup" class="frame-button-group"></div>
+                        <div id="btnSmallerGroup" class="frame-button-group"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

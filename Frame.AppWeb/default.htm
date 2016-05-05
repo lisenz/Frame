@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FrameUI-首页</title>
+    <link href="frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#navbar").NavBar({
+                Brand: { Icon: "icon-lemon", Text: "FrameUI" },
+                UserMenu: { Photo: "user-portrait", Content: "欢迎您,<br />Lisen",
+                    Items: [
+                        { Icon: "icon-cog", Text: "系统设置" },
+                        { Icon: "icon-user", Text: "个人资料" },
+                        { Divider: true },
+                        { Icon: "icon-off", Text: "注销" }
+                    ]
+                }
+            });
+
+            $("#panel").Panel({
+                HasHeader: false,
+                Plain: true
+            });
+
+            $("#breadcrumbs").BreadCrumbs({
+                Items: [{ Text: "Home", Url: "examples/home.htm"}],
+                ToolBar: [
+                    { Type: "TextBox", Icon: "icon-search", Desc: "搜索", Width: 150 },
+                    { Type: "Button", Icon: "icon-refresh", Desc: "刷新", OnClick: function () { $("#panel").Frame().Reload(); } }
+                ],
+                OnItemClick: function (sender, item) {
+                    if (item.Url) {
+                        $("#panel").Frame().Load(item.Url);
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+            });
+            $("#sidebar").SideBar({
+                Shortcuts: [
+                    { Icon: "icon-heart", Mode: "success", Title: "快捷键1", OnClick: function () { $.Messager.Alert("系统提示", "快捷键1", "info"); } },
+                    { Icon: "icon-upload", Mode: "info", Title: "快捷键2", OnClick: function () { $.Messager.Alert("系统提示", "快捷键2", "info"); } },
+                    { Icon: "icon-wrench", Mode: "warning", Title: "快捷键3", OnClick: function () { $.Messager.Alert("系统提示", "快捷键3", "info"); } },
+                    { Icon: "icon-reorder", Mode: "error", Title: "快捷键4", OnClick: function () { $.Messager.Alert("系统提示", "快捷键4", "info"); } }
+                ]
+            });
+
+
+            $.ajax({
+                dataType: "json", type: "GET",
+                url: "datas/navbar.json",
+                success: function (datas) {
+                    if (datas && datas.length > 0) {
+                        $(datas).each(function () {
+                            $("#navbar").Frame().AddNavItem(this);
+                        });
+                    }
+                },
+                error: function (xhr, info, exp) {
+                    // 三个参数:XMLHttpRequest对象、错误信息、(可选)捕获的异常对象
+                    $.Messager.Alert("系统错误", exp, "error");
+                },
+                complete: function (xhr, ts) {
+                    $("#navigation").Navigation({
+                        Url: "datas/navigation.json",
+                        Method: "GET",
+                        OnHeaderClick: function (sender, item) {
+                            if (!item.Children) {
+                                $("#breadcrumbs").Frame().Clear();
+                                $("#breadcrumbs").Frame().AppendRange([
+                                    { Text: "Home", Url: "examples/home.htm" },
+                                    { Text: item.Title, Url: item.Url }
+                                ]);
+                            }
+                        },
+                        OnChildirenClick: function (sender, header, child) {
+                            $("#breadcrumbs").Frame().Clear();
+                            $("#breadcrumbs").Frame().AppendRange([
+                                { Text: "Home", Url: "examples/home.htm" },
+                                { Text: header.Title, Url: header.Url },
+                                { Text: child.Title, Url: child.Url }
+                            ]);
+                        }
+                    });
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="navbar" class="frame-navbar"></div>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div id="sidebar" class="frame-sidebar">
+                <ul id="navigation" class="frame-navigation"></ul>
+            </div>
+            <div class="frameui-container-content for-sidebar">
+                <div id="breadcrumbs" class="frame-breadcrumbs"></div>
+                <div id="panel" class="frame-panel"></div>
+            </div>
+        </div>
+    </div>  
+</body>
+</html>

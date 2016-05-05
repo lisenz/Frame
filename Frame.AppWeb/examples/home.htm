@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home</title>
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#alert").Alert({ Icon: "icon-exclamation-sign", Mode: "success" });
+            $("#alert").Frame().Show();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>Home</h1>
+        </div>
+        <div class="row">
+            <div id="alert">新版本2.1.0发布了。第一次升级到 2.1.x 版本，请注意在2.1.0版本的重大变动。</div>
+            <p class="lead">目前使用三位版本号增量发布，已经发布的版本不会再有任何变化。 三位版本号为 x.y.z，其中，更新z表示组件的bug修复或者功能更新，更新y表示新增组件，更新 x表示不兼容老版本的重要升级。</p>
+        </div>
+    </div>
+</body>
+</html>

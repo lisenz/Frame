@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>SideBar</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForSideBar").Tabs({ Plain: true });
+            $("#code").on("click", function () {
+                $("#tabForSideBar").Frame().SelectTab("代码");
+                return false;
+            });
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>SideBar</h1>
+        </div>
+        <div class="row">
+            <div id="tabForSideBar">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">SideBar 作为侧边栏控件，通过在页面的 <span class="red smaller-75">div</span> 标签添加 <span class="red smaller-75">.frame-sidebar</span>进行标识或者直接通过使用 <span class="red smaller-75">$("#页面标签id").SideBar(options);</span> 这样一行代码，即可将目标元素通过 <span class="red smaller-75">options</span> 相关属性的配置生成相应的侧边栏控件。<br />
+                    进行标识的侧边栏控件标签，需要放置在 <span class="red smaller-75">.frameui-container-inner</span>的 <span class="red smaller-75">div</span> 容器中。详细布局结构参照 <a id="code" href="#">代码</a> 标签页中 HTML 示例代码的布局。
+                    </p>
+                    <i class="icon-bookmark dark"></i> Options 属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Shortcuts</td>
+                                <td>侧边栏顶部的快捷菜单。只固定支持配置4个快捷菜单项。</td>
+                                <td>Array</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Content</td>
+                                <td>侧边栏中包裹的内容，这里可以一个function函数返回jquery标签对象或者字符串表示的标签。若侧边栏容器在页面已包含有子元素标签，则优先使用已包含内容标签。</td>
+                                <td>String/Function</td>
+                                <td>null</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <i class="icon-bookmark dark"></i> 侧边栏的 Shortcuts 快捷项对象的属性详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Icon</td>
+                                <td>快捷菜单项的显示图标。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Mode</td>
+                                <td>快捷菜单项的背景色模式。有8种模式可选：transparent，info，primary，success，warning，default，error，inverse。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Title</td>
+                                <td>快捷菜单项的功能描述提示文本。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnClick</td>
+                                <td>快捷菜单项的单击事件。</td>
+                                <td>Function</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;div class="frameui-container"&gt;
+    &lt;div class="frameui-container-inner"&gt;
+        &lt;div id="side" class="frame-sidebar"&gt;
+            &lt;div style="height:300px; color:#333; padding:5px;"&gt;这里可以放置内容&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="frameui-container-content for-sidebar"&gt;
+            右侧内容容器
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#side").SideBar({
+    Shortcuts: [
+        { Icon: "icon-signal", Mode: "success", OnClick: function () { $.Messager.Alert("系统消息", "icon-signal", "info"); } },
+        { Icon: "icon-pencil", Mode: "info", OnClick: function () { $.Messager.Alert("系统消息", "icon-pencil", "info"); } },
+        { Icon: "icon-group", Mode: "warning", OnClick: function () { $.Messager.Alert("系统消息", "icon-group", "info"); } },
+        { Icon: "icon-cogs", Mode: "error", OnClick: function () { $.Messager.Alert("系统消息", "icon-cogs", "info"); } }
+    ]
+});</pre>
+                </div>
+                <div title="示例">
+                    <div class="space"></div>
+                    <img alt="" src="../images/sidebar_example.png" />
+                </div>            
+            </div>
+        </div>
+    </div>
+</body>
+</html>

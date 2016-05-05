@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Panel</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/button.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/panel.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#panel1").Panel({
+                HasHeader: true,
+                Title: "标题",
+                ToolBar: [
+                    {
+                        Icon: "icon-refresh",
+                        OnClick: function (context) {
+                        }
+                    },
+                    {
+                        Icon: "icon-chevron-up",
+                        OnClick: function (context) {
+                        }
+                    }
+                ],
+                HasFooter: true,
+                Commands: [
+                    { Icon: "icon-bar-chart", IconSite: "left", Text: "图表", Orientation: "right" },
+                    { Icon: "icon-cog", IconSite: "left", Text: "配置" }
+                ]
+            });
+
+
+            $("#panel2").Panel({
+                HasHeader: true,
+                Title: "标题",
+                ToolBar: [
+                    {
+                        Icon: "icon-refresh",
+                        OnClick: function (context) {
+                        }
+                    },
+                    {
+                        Icon: "icon-chevron-up",
+                        OnClick: function (context) {
+                        }
+                    }
+                ],
+                HasFooter: true,
+                Commands: [
+                    { Icon: "icon-bar-chart", IconSite: "left", Text: "图表", Orientation: "right" },
+                    { Icon: "icon-cog", IconSite: "left", Text: "配置" }
+                ],
+                Url: "design_button_label.htm",
+                Height: 400
+            });
+
+            $("#panel3").Panel({
+                HasHeader: true,
+                Title: "标题",
+                ToolBar: [
+                    {
+                        Icon: "icon-refresh",
+                        OnClick: function (context) {
+                        }
+                    },
+                    {
+                        Icon: "icon-chevron-up",
+                        OnClick: function (context) {
+                        }
+                    }
+                ],
+                HasFooter: true,
+                Commands: [
+                    { Icon: "icon-bar-chart", IconSite: "left", Text: "图表", Orientation: "right" },
+                    { Icon: "icon-cog", IconSite: "left", Text: "配置" }
+                ],
+                Url: "design_button_label.htm",
+                Plain: true
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>Panel</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div id="panel1" class="frame-panel">
+                            <div style="background-color:Orange;">
+                                123123
+                                <br />
+                                <br />
+                                <br />
+                                <a href="#">123</a>
+                                <br />
+                                <br />
+                                2345353                            
+                                <br />                            
+                                <br />
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-12">
+                        <div id="panel2" class="frame-panel"></div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-12">
+                        <div id="panel3" class="frame-panel"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

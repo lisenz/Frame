@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CheckBox</title>
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/checkbox.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#chk").CheckBox();
+            $("#btnDisable").click(function () {
+                $("#chk").Frame().Disable();
+            });
+            $("#btnEnable").click(function () {
+                $("#chk").Frame().Enable();
+            });
+            $("#btnSetValue").click(function () {
+                $("#chk").Frame().SetValue("复选框");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>CheckBox</h1>
+                </div>
+                <div id="r" class="row">
+                    <input id="chk" type="checkbox" />
+                </div>
+                <div class="row">
+                    <button id="btnDisable" class="frame-button">Disable</button>
+                    <button id="btnEnable" class="frame-button">Enable</button>
+                    <button id="btnSetValue" class="frame-button">SetValue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

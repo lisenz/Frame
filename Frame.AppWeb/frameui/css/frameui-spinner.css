@@ -1,0 +1,62 @@
+﻿/*
+ * FrameUI v2.1.0
+ *
+ * Spinner样式.(11)
+ *
+ * Copyright 2015 zlx
+ *
+ */
+.frame-spinner-container{ display:inline-block; }
+.frame-spinner-group { position:relative; display:table; border-collapse:separate; }
+
+.frame-spinner-container .frame-spinner-buttons {
+    min-width:18px; 
+    margin:0; 
+    font-size:0px; 
+    width:1%;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.frame-spinner-container .frame-spinner-buttons > .frame-button {
+	position: relative;
+	padding: 0px;
+	border-radius: 0px !important;
+	height: 29px;
+    line-height: 20px;
+    width: 24px;
+    font-size: 18px;
+    display: inline-block;
+    vertical-align: sub;
+    margin: 0px 1px;
+}
+.frame-spinner-container .frame-spinner-buttons > .frame-button > [class*="icon-"]{
+	margin:0;
+	padding:0;
+	vertical-align: middle;
+    display: inline-block;
+}
+
+.frame-spinner-container .frame-spinner-buttons > button.frame-button:active{
+	left:auto;
+	top:auto;
+}
+
+.frame-spinner-container .frame-spinner{
+	width: 100%;
+    width:auto\0/;
+	line-height:1\0/!important;
+	padding-bottom:4px\0/!important;
+	text-align:center;
+	height:29px;
+	line-height:28px;
+	color:#777;
+    margin-bottom: 0px;
+    display: table-cell;
+    max-width:100%;
+    border-collapse: separate;
+    vertical-align: middle;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}

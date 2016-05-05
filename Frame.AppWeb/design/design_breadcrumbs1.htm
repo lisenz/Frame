@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>BreadCrumbs</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/button.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/tip.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/textbox.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/breadcrumbs.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#bd").BreadCrumbs({
+                Items: [
+                    { Text: "Home" },
+                    { Text: "Home1", Url: "http://localhost:3932/design/design_breadcrumbs.htm" }
+                ],
+                ToolBar: [
+                { Type: "Button", Icon: "icon-refresh", Desc: "刷新", OnClick: function (sender) { alert($(sender).html()); } },
+                { Type: "TextBox", Icon: "icon-search", Desc: "搜索" }
+                ],
+                OnItemClick: function (sender, item) {
+                    alert(item.Text);
+                }
+            });
+
+            $("#btn").click(function () {
+                $("#bd").Frame().Append({ Text: "Dashboard" });
+            });
+        });
+    </script>
+
+    <!--<script type="text/javascript" language="javascript" src="../scripts/sea.js"></script>
+    <script type="text/javascript" language="javascript">
+        seajs.config({
+            base: "../scripts/",
+            alias: {
+                "jquery": "jquery.js"
+            }
+        });
+
+        seajs.use("jquery", function ($) {
+            $(document).ready(function () {
+                alert($(".frame-breadcrumb").html());
+            });
+        });
+        
+        
+    </script>-->
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div id="bd" class="frame-breadcrumbs"></div>
+                <div class="page-header">
+                    <h1>DatePicker</h1>
+                </div>
+                <div class="row">
+                    <button id="btn" class="frame-button">Button</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

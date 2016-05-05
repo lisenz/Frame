@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ContextMenu</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForContextMenu").Tabs({ Plain: true });
+
+            $("#cm").ContextMenu({
+                Items: [
+                    { Text: "菜单项-带图标", Icon: "icon-leaf", IconColor: "blue",
+                        OnClick: function (sender, o) {
+                            $.Messager.Alert("菜单项文本", o.Text, "info");
+                        }
+                    },
+                    { Text: "菜单项-已点击且禁用", Disabled: true, Actived: true },
+                    { Text: "菜单项-有子项", HasChild: true, Icon: "icon-leaf", IconColor: "blue",
+                        Childs: [
+                            { Text: "二级菜单项" },
+                            { Text: "二级菜单项-已点击", Actived: true },
+                            { Text: "二级菜单项-带图标", Icon: "icon-leaf", IconColor: "blue" },
+                            { Divider: true },
+                            { Text: "二级菜单项" }
+                        ]
+                    },
+                    { Divider: true },
+                    { Text: "菜单项" }
+                ],
+                OnItemClick: function (sender, o) {
+                    $.Messager.Alert("菜单项文本", o.Text, "info");
+                }
+            });
+
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>ContextMenu</h1>
+        </div>
+        <div class="row">
+            <div id="tabForContextMenu">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">
+                    用于为目标元素创建上下文右键菜单，通过使用 <span class="red smaller-75">var contextmenu = $("#目标元素id").ContextMenu(options);</span> 这样一行代码，即可在目标元素的可见区域中使用右键菜单。<br />
+                    需要使用右键菜单的目标元素，样式必须使用 <span class="red smaller-75">position:relative;</span> 。
+                    </p>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> Options 属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Target</td>
+                                <td>右键菜单所依附的目标元素。</td>
+                                <td>Selector</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Width</td>
+                                <td>右键菜单的宽度。</td>
+                                <td>Number</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Mode</td>
+                                <td>菜单的背景色模式，有7种模式可选：info，primary，success，warning，default，error，inverse。</td>
+                                <td>String</td>
+                                <td>primary</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Items</td>
+                                <td>右键菜单的菜单项对象集合。菜单项对象格式：{Text，HasChild，Childs:[]，Icon，IconColor，Divider，Disabled，Actived，OnClick}。</td>
+                                <td>Array</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">X</td>
+                                <td>菜单在区域中的 X 坐标位置。</td>
+                                <td>Number</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Y</td>
+                                <td>菜单在区域中的 Y 坐标位置。</td>
+                                <td>Number</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> 菜单项对象集合 Items 的菜单项对象属性详细说明：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Text</td>
+                                <td>菜单项文本。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">HasChild</td>
+                                <td>标识是否有子项。</td>
+                                <td>Boolean</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Childs</td>
+                                <td>菜单项的子项对象集合。当 HasChild 属性为 true ，该属性才有效。</td>
+                                <td>Array</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Icon</td>
+                                <td>菜单项显示图标样式名称。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">IconColor</td>
+                                <td>当菜单项使用图标时，设置图标颜色的样式。有16种颜色样式可选：dark，red，light-red，blue，light-blue，green，light-green，orange，light-orange，orange2，purple，pink，pink2，brown，grey，light-grey。</td>
+                                <td>Selector</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Divider</td>
+                                <td>设置一个值，该值标识当前菜单项是否为分割线。</td>
+                                <td>Boolean</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Disabled</td>
+                                <td>设置一个值，该值标识菜单项是否禁用。</td>
+                                <td>Boolean</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Actived</td>
+                                <td>设置一个值，该值标识菜单项是否已被点击激活。</td>
+                                <td>Boolean</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnClick</td>
+                                <td>右键菜单菜单项的单击事件。事件参数传递当前单击的菜单项元素对象和菜单项对象。</td>
+                                <td>sender，item</td>
+                                <td>null</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <i class="icon-bookmark dark"></i> Options 事件属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    名称
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">OnItemClick</td>
+                                <td>sender，item</td>
+                                <td>右键菜单菜单项的单击事件。该事件在菜单项未设置其自身的 OnClick 事件时生效。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> ContextMenu 对象方法说明见下表：<br />
+                    调用：<span class="red smaller-75">$("id").Frame().方法名();</span>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    方法
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Show</td>
+                                <td>option</td>
+                                <td>显示右键菜单。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Close</td>
+                                <td>none</td>
+                                <td>关闭右键菜单。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">EnableItem</td>
+                                <td>lv，idx</td>
+                                <td>启用指定层级下指定索引的菜单项。其中参数 lv 标识菜单的层级数，idx 标识该层级下的菜单项索引。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">DisableItem</td>
+                                <td>lv，idx</td>
+                                <td>禁用指定层级下指定索引的菜单项。其中参数 lv 标识菜单的层级数，idx 标识该层级下的菜单项索引。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">DeactiveItem</td>
+                                <td>lv，idx</td>
+                                <td>取消指定层级下指定索引的菜单项激活状态，该状态表示该菜单项已被取消激活。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">ActiveItem</td>
+                                <td>lv，idx</td>
+                                <td>设置指定层级下指定索引的菜单项激活状态，该状态表示该菜单项已被点击激活。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;div id="cm" style="width:600px; height:300px; border:1px solid #333; color:#999; position:relative;"&gt;
+在该区域中使用右键菜单
+&lt;/div&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#cm").ContextMenu({
+    Items: [
+        { Text: "菜单项-带图标", Icon: "icon-leaf", IconColor: "blue",
+            OnClick: function (sender, o) {
+                $.Messager.Alert("菜单项文本", o.Text, "info");
+            }
+        },
+        { Text: "菜单项-已点击且禁用", Disabled: true, Actived: true },
+        { Text: "菜单项-有子项", HasChild: true, Icon: "icon-leaf", IconColor: "blue",
+            Childs: [
+                { Text: "二级菜单项" },
+                { Text: "二级菜单项-已点击", Actived: true },
+                { Text: "二级菜单项-带图标", Icon: "icon-leaf", IconColor: "blue" },
+                { Divider: true },
+                { Text: "二级菜单项" }
+            ]
+        },
+        { Divider: true },
+        { Text: "菜单项" }
+    ],
+    OnItemClick: function (sender, o) {
+        $.Messager.Alert("菜单项文本", o.Text, "info");
+    }
+});</pre>
+                </div>
+                <div title="示例">
+                    <div class="space"></div>
+                    <div style="height:600px;">
+                        <div id="cm" style="width:600px; height:300px; border:1px solid #333; color:#999; position:relative;">
+                        在该区域中使用右键菜单
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

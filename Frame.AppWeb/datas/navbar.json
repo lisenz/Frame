@@ -1,0 +1,53 @@
+﻿[
+    {
+        "Icon": "icon-bell",
+        "Text": 4,
+        "Badge": "important",
+        "Color": "grey",
+        "DropMenu": {
+            "Header": {
+                "Icon": "icon-star-empty",
+                "Title": "消息列表"
+            },
+            "Children": [
+                {
+                    "Content": "消息记录1"
+                },
+                {
+                    "Content": "消息记录2"
+                },
+                {
+                    "Content": "消息记录3"
+                },
+                {
+                    "Content": "消息记录4"
+                }
+            ],
+            "Footer": {
+                "Icon": "icon-arrow-right",
+                "Text": "查看更多记录"
+            }
+        }
+    },
+	{
+        "Icon": "icon-cogs",
+        "Color": "purple",
+        "DropMenu": {
+            "Header": {
+                "Icon": "icon-cog",
+                "Title": "配置列表"
+            },
+            "Children": [
+                {
+                    "Content": "<i class='icon-time'></i>更新日志"
+                },
+                {
+                    "Content": "<i class='icon-download green'></i>下载"
+                },
+                {
+                    "Content": "<i class='icon-question-sign orange'></i>关于"
+                }
+            ]
+        }
+    }
+]

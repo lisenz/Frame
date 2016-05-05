@@ -1,0 +1,375 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FormBox</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForFormBox").Tabs({ Plain: true });
+
+            $("#formbox1").FormBox({
+                Title: "Form",
+                CanDraggable: true,
+                Closable: false,
+                CanResizable: true,
+                IsModal: true,
+                Width: 350,
+                Height: 250,
+                Buttons: [
+                { Mode: "info", Icon: "icon-ok", Text: "确定" },
+                { Mode: "error", Icon: "icon-power-off", Orientation: "right", Text: "取消", OnClick: function () { $.Frame.Get("formbox1").Close(); } }]
+            });
+
+            $("#btnFromBox1").click(function () {
+                $.Frame.Get("formbox1").Show();
+                return false;
+            });
+
+            $("#btnFromBox2").click(function () {
+                $.FormBox.Show({
+                    Title: "Remote",
+                    HasFooter: false,
+                    CanDraggable: true,
+                    Closable: true,
+                    CanResizable: true,
+                    Url: "example.htm",
+                    IsModal: true,
+                    Width: 400,
+                    Height: 300
+                });
+                return false;
+            });
+
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content" style="height:1000px;">
+        <div class="page-header">
+            <h1>FormBox</h1>
+        </div>
+        <div class="row">
+            <div id="tabForFormBox">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">FormBox 是一个窗体控件，可以利用嵌入到页面的任何位置的 <span class="red smaller-75">div</span> 标签，继而使用 <span class="red smaller-75">var formbox = $("#页面标签id").FormBox(options);</span> 这样一行代码或使用 js 代码，根据 <span class="red smaller-75">options</span> 相关属性的配置将目标元素生成为窗体控件对象。
+                    </p>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> Options 属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-65">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">HasHeader</td>
+                                <td>设置一个值，该值标识窗体是否使用标题栏。</td>
+                                <td>Boolean</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Closable</td>
+                                <td>设置一个值，该值标识窗体是否显示关闭按钮。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Commands</td>
+                                <td>设置窗体标题栏的拓展功能按钮集合。</td>
+                                <td>Array</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Title</td>
+                                <td>窗体标题栏的标题文本。</td>
+                                <td>String</td>
+                                <td>标题</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Icon</td>
+                                <td>窗体标题栏的图标样式名称。</td>
+                                <td>String</td>
+                                <td>icon-desktop</td>
+                            </tr>
+                            <tr>
+                                <td class="center">HasFooter</td>
+                                <td>设置一个值，该值标识窗体是否使用底部页脚功能。</td>
+                                <td>Boolean</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Buttons</td>
+                                <td>设置窗体底部页脚的功能按钮集合。</td>
+                                <td>Array</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Left</td>
+                                <td>设置窗体的left位置。</td>
+                                <td>Number</td>
+                                <td>auto</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Top</td>
+                                <td>设置窗体的top位置。</td>
+                                <td>Number</td>
+                                <td>auto</td>
+                            </tr>
+                            <tr>
+                                <td class="center">CloseOnDestroy</td>
+                                <td>设置一个值，该值标识窗体关闭时是否同时从组件管理器中移除。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td class="center">CanDraggable</td>
+                                <td>设置一个值，该值标识窗体是否支持拖动。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td class="center">CanResizable</td>
+                                <td>设置一个值，该值标识窗体尺寸是否支持改变。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td class="center">IsModal</td>
+                                <td>设置窗体显示时是否使用遮罩层。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Url</td>
+                                <td>设置加载远程页面的URL。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Params</td>
+                                <td>指定给加载远程页面的URL的参数对象。</td>
+                                <td>Object</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Content</td>
+                                <td>设置窗体的主体内容。主体内容格式可以为字符串或HTML片段</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Width</td>
+                                <td>窗体的宽度。</td>
+                                <td>Number</td>
+                                <td>auto</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Height</td>
+                                <td>窗体的高度。</td>
+                                <td>Number</td>
+                                <td>auto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> Options 事件属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    名称
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">OnBeforeShow</td>
+                                <td>none</td>
+                                <td>显示窗体前触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnShown</td>
+                                <td>none</td>
+                                <td>显示窗体时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnBeforeClose</td>
+                                <td>none</td>
+                                <td>关闭窗体前触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnClose</td>
+                                <td>none</td>
+                                <td>关闭窗体时触发。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> FormBox 对象方法说明见下表：<br />
+                    调用：<span class="red smaller-75">$("id").Frame().方法名();</span>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    方法
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Show</td>
+                                <td>position</td>
+                                <td>显示窗体。默认显示窗体时，位置居中浏览器。可以通过指定 position 使窗体的显示位置发生改变。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Close</td>
+                                <td>none</td>
+                                <td>关闭窗体。注意，这里关闭窗体，但实际窗体仍然存在于组件管理器中。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Destroy</td>
+                                <td>none</td>
+                                <td>彻底关闭窗体，此时窗体从组件管理器中销毁。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Load</td>
+                                <td>url, params</td>
+                                <td>设置远程页面的URL和传递的参数，加载到窗体的主体位置。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Reload</td>
+                                <td>params</td>
+                                <td>传递新的参数，重新加载远程页面。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;button id="btnFromBox1" class="frame-button frame-button-primary"&gt;FormBox Has Content&lt;/button&gt;
+&lt;button id="btnFromBox2" class="frame-button frame-button-primary"&gt;FormBox On Remote&lt;/button&gt;
+&lt;div id="formbox1"&gt;
+    &lt;form&gt;
+        &lt;div class="frame-form-group"&gt;
+            &lt;label class="col-4 control-label"&gt;账户名称：&lt;/label&gt;
+            &lt;div class="col-4"&gt;
+                &lt;input type="text" /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="space-4"&gt;&lt;/div&gt;
+        &lt;div class="frame-form-group"&gt;
+            &lt;label class="col-4 control-label"&gt;登录密码：&lt;/label&gt;
+            &lt;div class="col-4"&gt;
+                &lt;input type="password" /&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#formbox1").FormBox({
+    Title: "Form",
+    CanDraggable: true,
+    Closable: false,
+    CanResizable: true,
+    IsModal: true,
+    Width: 350,
+    Height: 250,
+    Buttons: [
+    { Mode: "info", Icon: "icon-ok", Text: "确定" },
+    { Mode: "error", Icon: "icon-power-off", Orientation: "right", Text: "取消", OnClick: function () { $.Frame.Get("formbox1").Close(); } }]
+});
+
+$("#btnFromBox1").click(function () {
+    $.Frame.Get("formbox1").Show();
+    return false;
+});
+
+$("#btnFromBox2").click(function () {
+    $.FormBox.Show({
+        Title: "Remote",
+        HasFooter: false,
+        CanDraggable: true,
+        Closable: true,
+        CanResizable: true,
+        Url: "example.htm",
+        IsModal: true,
+        Width: 400,
+        Height: 300
+    });
+    return false;
+});</pre>
+                </div>
+                <div title="示例">
+                    <div class="space"></div>
+                    <ul class="list-inline">
+                        <li><button id="btnFromBox1" class="frame-button frame-button-primary">FormBox Has Content</button></li>
+                        <li><button id="btnFromBox2" class="frame-button frame-button-primary">FormBox On Remote</button></li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="formbox1">
+        <form>
+            <div class="frame-form-group">
+                <label class="col-4 control-label">账户名称：</label>
+                <div class="col-4">
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="space-4"></div>
+            <div class="frame-form-group">
+                <label class="col-4 control-label">登录密码：</label>
+                <div class="col-4">
+                    <input type="password" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

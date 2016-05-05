@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ToolTip</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/tip.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tipDefault").Tip();
+            $("#tipTop").Tip({ Placement: "auto", Mode: "success" });
+            $("#tipBottom").Tip({ Placement: "bottom", Mode: "error" });
+            $("#tipLeft").Tip({ Placement: "left" });
+            $("#tipRight").Tip({ Placement: "right" });
+            $("#tipHtml").Tip({ Placement: "auto left", Html: true, Mode: "info", Title: "<div>HTMLskdflsfjsfkjsdfjssfjsdj</div>" });
+            $("#tipHtmlOnFunc").Tip({ Placement: "auto right", Html: true, Mode: "warning",
+                Title: function () { return "<div>HTMLskdfl<br/>sdfklsdjfs</div>"; }
+            });
+
+
+            $("#tipOnClick").Tip({ Placement: "auto", Trigger: "click", Title: "Click Title", Mode: "success" });
+            $("#txtOnFocus").Tip({ Placement: "auto right", Trigger: "focus", Mode: "warning" });
+
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>ToolTip</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div style=" float:right;">
+                            <div id="tipDefault" tip="ddddd">sdfsfsdf</div>
+                        </div>
+                        <div id="tipTop" tip="ddddd-top" style="width:200px; height:30px; border:1px solid red;">sdfsfsdf</div>
+                        <div id="tipBottom" tip="ddddd-bottom" style="width:200px; height:30px; border:1px solid red;">sdfsfsdf</div>
+                        <div id="tipLeft" tip="ddddd-left" style="width:200px; height:30px; border:1px solid red;">sdfsfsdf</div>
+                        <div id="tipRight" tip="ddddd-right" style="width:200px; height:30px; border:1px solid red;">sdfsfsdf</div>
+
+                        
+                        <div id="tipHtml" style="width:200px; height:30px; border:1px solid red;">HTML SDKFJSFJ</div>
+                        <div id="tipHtmlOnFunc" style="width:200px; height:30px; border:1px solid red;">HTML FUNCTION SDKFJSFJ</div>
+                        <div id="tipOnClick" style="width:200px; height:30px; border:1px solid red;">HTML FUNCTION SDKFJSFJ</div>
+                        <input id="txtOnFocus" type="text" class="frame-textbox" tip="textbox" />
+                    </div>                        
+                </div>
+                <div class="space"></div>
+                <div class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

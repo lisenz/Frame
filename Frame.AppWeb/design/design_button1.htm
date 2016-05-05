@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Buttons</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/button.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#btnOriginal").Button({ Mode: "original" });
+            $("#btnDefault").Button({ Mode: "default", Size: "large" });
+            $("#btnPrimary").Button({ Mode: "primary", Size: "normal" });
+            $("#btnSuccess").Button({ Mode: "success", Size: "small" });
+            $("#btnError").Button({ Mode: "error", Size: "smaller" });
+            $("#btnWraning").Button({ Mode: "warning" });
+            $("#btnInverse").Button({ Mode: "inverse" });
+            $("#btnInfo").Button({ Mode: "info" });
+
+            $("#btnBlock").Button({ Mode: "info", Size: "normal", CanBlock: true });
+            $("#btnIconOnLeft").Button({ Mode: "info", Size: "normal", Icon: "icon-bar-chart", IconSite: "left" });
+            $("#btnIconOnSide").Button({ Mode: "info", Size: "normal", Icon: ["icon-bar-chart", "icon-bookmark-empty"], IconSite: "side" });
+            $("#btnIconOnRight").Button({ Mode: "info", Size: "normal", Icon: "icon-bar-chart", IconSite: "right" });
+            $("#btnOnlyIcon").Button({ Mode: "info", Size: "normal", Icon: "icon-bar-chart",
+                OnClick: function (sender) {
+                    alert($(sender).html());
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-head">
+                    <h1>Buttons</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btnOriginal" class="frame-button">Original Button</button>
+                        <button id="btnDefault" class="frame-button">Default Button</button>
+                        <button id="btnPrimary" class="frame-button">Primary Button</button>
+                        <button id="btnSuccess" class="frame-button">Success Button</button>
+                        <button id="btnError" class="frame-button">Error Button</button>
+                        <button id="btnWraning" class="frame-button">Warning Button</button>
+                        <button id="btnInverse" class="frame-button">Inverse Button</button>
+                        <button id="btnInfo" class="frame-button">Info Button</button>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btnBlock" class="frame-button">Block Button</button>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btnIconOnLeft" class="frame-button">左边带图标的按钮</button>
+                        <button id="btnIconOnSide" class="frame-button">两边带图标的按钮</button>
+                        <button id="btnIconOnRight" class="frame-button">右边带图标的按钮</button>
+                        <button id="btnOnlyIcon" class="frame-button"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

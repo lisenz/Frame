@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CheckBox</title>
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/radio.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#rd").Radio();
+            $("#Radio1").Radio({ Checked: true, OnChange: function (value) { alert(value); } });
+            $("#Radio2").Radio({ Value: "女" });
+            $("#btnDisable").click(function () {
+                $("#rd").Frame().Disable();
+            });
+            $("#btnEnable").click(function () {
+                $("#rd").Frame().Enable();
+            });
+            $("#btnSetValue").click(function () {
+                $("#rd").Frame().SetValue("复选框");
+            });
+            $("#btnStatus").click(function () {
+                var s = $("#Radio2").Frame().Status();
+                alert(s);
+            });
+            $("#btnChecked").click(function () {
+                var s = $("#Radio1").Frame().Status();
+                $("#Radio1").Frame().Checked(!s);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>Radio</h1>
+                </div>
+                <div class="row">
+                    <input id="rd" type="radio" />
+
+                    
+                    <input id="Radio1" class="frame-radio" checked="checked" type="radio" name="frame" />
+                    <input id="Radio2" class="frame-radio" type="radio" name="frame" />
+                </div>
+                <div class="space"></div>
+                <div class="row">
+                    <button id="btnDisable" class="frame-button">Disable</button>
+                    <button id="btnEnable" class="frame-button">Enable</button>
+                    <button id="btnSetValue" class="frame-button">SetValue</button>
+                    
+                    <button id="btnStatus" class="frame-button">Statue</button>
+                    <button id="btnChecked" class="frame-button">Checked</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

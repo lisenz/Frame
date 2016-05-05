@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Messager</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForMessager").Tabs({ Plain: true });
+
+            $("#btn1").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息", "error");
+            });
+
+            $("#btn2").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息", "info");
+
+            });
+            $("#btn3").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息", "warn");
+
+            });
+            $("#btn4").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息", "ask");
+
+            });
+            $("#btn5").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息", "exclamation");
+
+            });
+            $("#btn6").on("click", function () {
+                $.Messager.Confirm("Alert", "是否继续？", function (r) {
+                    if (r) {
+                        $.Messager.Alert("Alert", "是", "info");
+                    } else {
+                        $.Messager.Alert("Alert", "否", "info");
+                    }
+                });
+
+            });
+            $("#btn7").on("click", function () {
+                $.Messager.Show({ Title: "消息", Message: "消息内容" });
+
+            });
+
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content" style="height:1000px;">
+        <div class="page-header">
+            <h1>Messager</h1>
+        </div>
+        <div class="row">
+            <div id="tabForMessager">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">Messager 是一个消息控件，提供不同类型的消息框。用户可以使用 Messager 回调函数做交互操作。
+                    </p>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> Messager 对象方法说明见下表：<br />
+                    调用：<span class="red smaller-75">$.Messager.方法名();</span>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    方法
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Alert</td>
+                                <td>title, message, icon, fn</td>
+                                <td>显示一个 Alert 窗体消息框。其中 title 为标题文本；message 为消息内容；icon 为显示的图标，可选值为：info，error，warn，ask，exclamation；fn 为窗体关闭时触发的回调函数。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Confirm</td>
+                                <td>title, message, fn</td>
+                                <td>显示一个 Confirm 窗体提示框。其中 title 为标题文本；message 为消息内容；fn 为窗体关闭时触发的回调函数。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Show</td>
+                                <td>options</td>
+                                <td>显示一个消息窗体。options属性对象格式：｛Title，Message，Width，Height｝。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;button id="btn1" class="frame-button frame-button-success"&gt;Alert Error&lt;/button&gt;
+&lt;button id="btn2" class="frame-button frame-button-success"&gt;Alert Info&lt;/button&gt;
+&lt;button id="btn3" class="frame-button frame-button-success"&gt;Alert Warn&lt;/button&gt;
+&lt;button id="btn4" class="frame-button frame-button-success"&gt;Alert Question&lt;/button&gt;
+&lt;button id="btn5" class="frame-button frame-button-success"&gt;Alert Exclamation&lt;/button&gt;
+&lt;button id="btn6" class="frame-button frame-button-success"&gt;Confirm&lt;/button&gt;
+&lt;button id="btn7" class="frame-button frame-button-success"&gt;Show&lt;/button&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#btn1").on("click", function () {
+    $.Messager.Alert("Alert", "提示消息", "error");
+});
+
+$("#btn2").on("click", function () {
+    $.Messager.Alert("Alert", "提示消息", "info");
+
+});
+$("#btn3").on("click", function () {
+    $.Messager.Alert("Alert", "提示消息", "warn");
+
+});
+$("#btn4").on("click", function () {
+    $.Messager.Alert("Alert", "提示消息", "ask");
+
+});
+$("#btn5").on("click", function () {
+    $.Messager.Alert("Alert", "提示消息", "exclamation");
+
+});
+$("#btn6").on("click", function () {
+    $.Messager.Confirm("Alert", "是否继续？", function (r) {
+        if (r) {
+            $.Messager.Alert("Alert", "是", "info");
+        } else {
+            $.Messager.Alert("Alert", "否", "info");
+        }
+    });
+
+});
+$("#btn7").on("click", function () {
+    $.Messager.Show({ Title: "消息", Message: "消息内容" });
+
+});</pre>
+                </div>
+                <div title="示例">
+                    <div class="space"></div>
+                    <button id="btn1" class="frame-button frame-button-success">Alert Error</button>
+                    <button id="btn2" class="frame-button frame-button-success">Alert Info</button>
+                    <button id="btn3" class="frame-button frame-button-success">Alert Warn</button>
+                    <button id="btn4" class="frame-button frame-button-success">Alert Question</button>
+                    <button id="btn5" class="frame-button frame-button-success">Alert Exclamation</button>
+                    <button id="btn6" class="frame-button frame-button-success">Confirm</button>
+                    <button id="btn7" class="frame-button frame-button-success">Show</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>FormBox</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/button.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/draggable.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/resizable.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/formbox.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/messager.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btn1").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息12提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息提示消息", "error");
+            });
+
+            $("#btn2").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息", "info");
+
+            });
+            $("#btn3").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息", "warn");
+
+            });
+            $("#btn4").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息", "ask");
+
+            });
+            $("#btn5").on("click", function () {
+                $.Messager.Alert("Alert", "提示消息", "exclamation");
+
+            });
+            $("#btn6").on("click", function () {
+                $.Messager.Confirm("Alert", "是否继续？", function (r) {
+                    if (r) {
+                        $.Messager.Alert("Alert", "是", "info");
+                    } else {
+                        $.Messager.Alert("Alert", "否", "info");
+                    }
+                });
+
+            });
+            $("#btn7").on("click", function () {
+                $.Messager.Show({ Title: "消息", Message: "消息内容" });
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>Panel</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btn1" class="frame-button frame-button-success">Alert Error</button>
+                        <button id="btn2" class="frame-button frame-button-success">Alert Info</button>
+                        <button id="btn3" class="frame-button frame-button-success">Alert Warn</button>
+                        <button id="btn4" class="frame-button frame-button-success">Alert Question</button>
+                        <button id="btn5" class="frame-button frame-button-success">Alert Exclamation</button>
+                        <button id="btn6" class="frame-button frame-button-success">Confirm</button>
+                        <button id="btn7" class="frame-button frame-button-success">Show</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/combobox.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#cmbDefault").ComboBox({
+                Editable: false,
+                Mode: "success",
+                Text: "FPointName",
+                Value: "PId",
+                PanelHeight: 200,
+                PanelWidth:200
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <form>
+                    <div class="frame-form-group">
+                        <label class="col-2 control-label">文本wewer1：</label>
+                        <div class="col-9">
+                            <input type="text" />
+                        </div>
+                    </div>
+                    <div class="space-4"></div>
+                    <div class="frame-form-group">
+                        <label class="col-2 control-label">文本www1：</label>
+                        <div class="col-9">
+                            <input type="text" />
+                        </div>
+                    </div>
+                    <div class="space-4"></div>
+                    <div class="frame-form-group">
+                        <label class="col-2 control-label">文本1：</label>
+                        <div class="col-9">
+                            <select id="cmbDefault" class="frame-combobox">
+                                <option value="1">选项1</option>
+                                <option value="2">选项2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="frame-form-actions clearfix">
+                        <div class="col-offset-2 col-9">
+							<button class="frame-button frame-button-info" type="button">
+								<i class="icon-ok bigger-110"></i>
+								Submit
+							</button>
+							<button class="frame-button" type="reset">
+								<i class="icon-undo bigger-110"></i>
+								Reset
+							</button>
+						</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

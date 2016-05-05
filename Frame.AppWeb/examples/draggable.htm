@@ -1,0 +1,323 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Draggable</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForDraggable").Tabs({ Plain: true });
+
+            $("#dragDefault").Draggable();
+            $("#dragByHandler").Draggable({ Handler: "#handler" });
+            $("#dragByRevert").Draggable({ Proxy: "Clone", CanRevert: true });
+            $("#dragNoProxy").Draggable({ Proxy: false });
+            $("#dragByCustom").Draggable({ Proxy: function () {
+                var div = $('<div style="width:100px;height:100px; background: #dd5a43; position:absolute;"></div>');
+                div.appendTo($(this).parent());
+                return div;
+            }
+            });
+
+            $("#draggable").Draggable({ Proxy: "Clone", Receive: ".receive",
+                OnDragEnter: function (receive, target, e) {
+                    $(receive).css("background-color", $(target).css("background-color"));
+                },
+                OnDragOver: function (receive, target, e) {
+                    $(receive).text("x:" + e.pageX + ";y:" + e.pageY);
+                },
+                OnDragLeave: function (receive, target, e) {
+                    $(receive).text("Leave");
+                }, 
+                OnStartDrag: function (sender, e) {
+                    $(sender).text("开始拖动");
+                },
+                OnDrag: function (sender, e) {
+                    $(sender).text("拖动中(x:" + e.pageX + ";y:" + e.pageY + ")");
+                },
+                OnStopDrag: function (sender, e) {
+                    $(sender).text("拖动结束");
+                }
+            });
+
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>Draggable</h1>
+        </div>
+        <div class="row">
+            <div id="tabForDraggable">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">
+                    Draggable 控件可用于将目标元素创建为一个拖曳对象，继而对元素目标对象进行拖动，使其位置发生变化。
+                    <br />通过在 <span class="red smaller-75">div</span> 或其他块状标签上添加 <span class="red smaller-75">.frame-draggable</span> ，
+                    标识为拖曳元素，通过使用 <span class="red smaller-75">var drag = $("#页面标签id").Draggable(options);</span> 
+                    这样一行代码，即可将页面指定ID的标签通过 <span class="red smaller-75">options</span> 
+                    相关属性的配置生成相应的拖曳对象。<br />
+                    </p>
+                    <div class="space"></div>                 
+                    <i class="icon-bookmark dark"></i> Options 属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-65">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th class="width-16">
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Handler</td>
+                                <td>可进行拖动的句柄元素对象，这里可以是句柄标签元素的ID或者对应的jQuery对象。</td>
+                                <td>String\Selector</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Proxy</td>
+                                <td>拖动时临时生成的代理元素，默认为 true ，表示使用代理。当设置值为 Clone 时，将使用该元素的一个复制元素来作为替代元素；如果指定了一个函数,则需返回一个 jquery 对象作为代理元素对象。</td>
+                                <td>Boolean\Function\Selector</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td class="center">ProxyX</td>
+                                <td>拖动目标元素时代理元素的起始X坐标点。</td>
+                                <td>Number</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">ProxyY</td>
+                                <td>拖动目标元素时代理元素的起始Y坐标点。</td>
+                                <td>Number</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">CanRevert</td>
+                                <td>设置一个值,该值标识当将目标元素拖动到指定位置，鼠标释放后元素是否返回原先的位置。要使归位效果生效，Proxy 属性不可为空。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Animate</td>
+                                <td>是否使用动画效果</td>
+                                <td>Boolean</td>
+                                <td>true</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Receive</td>
+                                <td>接收拖动目标元素的元素标签ID或Class。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Disabled</td>
+                                <td>设置一个值，该值标识目标元素是否禁止拖曳。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> Options 事件属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    名称
+			                    </th>
+			                    <th class="width-50">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">OnStartDrag</td>
+                                <td>target[目标元素对象]，e[mousedown鼠标事件对象]</td>
+                                <td>当对目标元素开始进行拖动时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnDrag</td>
+                                <td>target[目标元素对象]，e[mousemove鼠标事件对象]</td>
+                                <td>当对目标元素进行拖动时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnDrop</td>
+                                <td>receive[接收目标元素的容器元素]，source[目标元素对象]，e[mouseup鼠标事件对象]</td>
+                                <td>当要停止对目标元素进行拖动时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnStopDrag</td>
+                                <td>target[目标元素对象]，e[mouseup鼠标事件对象]</td>
+                                <td>当停止对目标元素进行拖动时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnRevert</td>
+                                <td>e[mouseup鼠标事件对象]</td>
+                                <td>当对目标元素拖动结束后元素进行归位时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnEndRevert</td>
+                                <td>e[mouseup鼠标事件对象]</td>
+                                <td>当元素完成归位时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnDragEnter</td>
+                                <td>receive[接收目标元素的容器元素]，source[目标元素对象]，e[mousemove鼠标事件对象]</td>
+                                <td>当拖动的目标元素进入receive指定的容器元素区域内时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnDragOver</td>
+                                <td>receive[接收目标元素的容器元素]，source[目标元素对象]，e[mousemove鼠标事件对象]</td>
+                                <td>当拖动的目标元素对象在receive指定的容器元素区域内移动时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnDragLeave</td>
+                                <td>receive[接收目标元素的容器元素]，source[目标元素对象]，e[mousemove鼠标事件对象]</td>
+                                <td>当拖动的目标元素对象离开receive指定的容器元素区域内时触发。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <i class="icon-bookmark dark"></i> Draggable 对象方法说明见下表：<br />
+                    调用：<span class="red smaller-75">$("id").Frame().方法名();</span>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    方法
+			                    </th>
+			                    <th class="width-50">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Enable</td>
+                                <td>none</td>
+                                <td>启用对目标元素进行拖曳的功能。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Disable</td>
+                                <td>none</td>
+                                <td>禁用对目标元素进行拖曳的功能。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;div id="dragDefault" style="background-color:#87b87f; width:100px; height:100px;"&gt;默认配置拖曳&lt;/div&gt;
+&lt;div id="dragByHandler" style="width:100px; height:100px; background-color:#feb902; left:100px;"&gt;
+    &lt;div id="handler" style="width: 100%; height: 30px; background-color:#93cbf9; line-height: 30px;"&gt;句柄&lt;/div&gt;
+    使用句柄实现标签元素拖曳
+&lt;/div&gt;
+&lt;div id="dragByRevert" style="width:100px; height:100px; font-size:12px; background-color:#a069c3; left:200px;"&gt;
+    实现标签元素拖曳后归位
+&lt;/div&gt;
+&lt;div id="dragNoProxy" style="width:100px; height:100px; font-size:12px; background-color:#c6699f; left:300px;"&gt;
+    不使用代理对象实现拖曳
+&lt;/div&gt;
+&lt;div id="dragByCustom" style="width:100px; height:100px; font-size:12px; background-color:#f77; left:400px;"&gt;
+    使用自定义代理实现标签元素拖曳
+&lt;/div&gt;
+//-----------------------------------
+&lt;div id="draggable"  style="width:100px; height:100px; background-color:#69aa46; z-index:10;" &gt;目标元素&lt;/div&gt;
+&lt;div class="receive" style="width:200px; height:200px; border:1px solid #bbb; position:absolute; left:110px;"&gt;接收目标元素的容器,当目标元素拖进容器范围内时，将容器背景设置为目标元素的背景&lt;/div&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#dragDefault").Draggable();
+$("#dragByHandler").Draggable({ Handler: "#handler" });
+$("#dragByRevert").Draggable({ Proxy: "Clone", CanRevert: true });
+$("#dragNoProxy").Draggable({ Proxy: false });
+$("#dragByCustom").Draggable({ Proxy: function () {
+    var div = $('&lt;div style="width:100px;height:100px; background: #dd5a43; position:absolute;"&gt;&lt;/div&gt;');
+    div.appendTo($(this).parent());
+    return div;
+}
+});
+
+$("#draggable").Draggable({ Proxy: "Clone", Receive: ".receive",
+    OnDragEnter: function (receive, target, e) {
+        $(receive).css("background-color", $(target).css("background-color"));
+    },
+    OnDragOver: function (receive, target, e) {
+        $(receive).text("x:" + e.pageX + ";y:" + e.pageY);
+    },
+    OnDragLeave: function (receive, target, e) {
+        $(receive).text("Leave");
+    }, 
+    OnStartDrag: function (sender, e) {
+        $(sender).text("开始拖动");
+    },
+    OnDrag: function (sender, e) {
+        $(sender).text("拖动中(x:" + e.pageX + ";y:" + e.pageY + ")");
+    },
+    OnStopDrag: function (sender, e) {
+        $(sender).text("拖动结束");
+    }
+});</pre>
+                </div>
+                <div title="示例">
+                    <div style="height:500px; width:100%;">
+                        <div id="dragDefault" style="top:5px; background-color:#87b87f; width:100px; height:100px; color:#fff;">默认配置拖曳</div>
+                        <div id="dragByHandler" style="top:5px; width:100px; height:100px; background-color:#feb902; left:100px; color:#fff;">
+                            <div id="handler" style="width: 100%; height: 30px; background-color:#93cbf9; line-height: 30px;">句柄</div>
+                            使用句柄实现标签元素拖曳
+                        </div>
+                        <div id="dragByRevert" style="top:5px; width:100px; height:100px; font-size:12px; background-color:#a069c3; left:200px; color:#fff;">
+                            实现标签元素拖曳后归位
+                        </div>
+                        <div id="dragNoProxy" style="top:5px; width:100px; height:100px; font-size:12px; background-color:#c6699f; left:300px; color:#fff;">
+                            不使用代理对象实现拖曳
+                        </div>
+                        <div id="dragByCustom" style="top:5px; width:100px; height:100px; font-size:12px; background-color:#f77; left:400px; color:#fff;">
+                            使用自定义代理实现标签元素拖曳
+                        </div>
+                    </div>
+                    <hr />
+                    <div style="height:500px; width:100%;">
+                        <div id="draggable"  style=" width:100px; height:100px; background-color:#69aa46; z-index:10; color:#fff;" >目标元素</div>
+                        <div class="receive" style=" width:200px; height:200px; background-color:#93cbf9; border:1px solid #bbb; position:absolute; left:110px; color:#fff;">接收目标元素的容器,当目标元素拖进容器范围内时，将容器背景设置为目标元素的背景</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

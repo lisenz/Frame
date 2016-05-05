@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tabs</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/tabs.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tab").Tabs({ Width: 700,Plain:true, Tabs: [
+                { Title: "Home", Closable: true, Selected: true, Content: "<span>design_typography.htm</span>" },
+                { Title: "Message", Closable: true, Url: "design_typography.htm" },
+                { Title: "斯蒂芬森", Closable: true, Url: "design_checkbox.htm" },
+                { Title: "Profile1", Closable: true, Url: "design_checkbox.htm" },
+                { Title: "Profile2", Closable: true, Url: "design_checkbox.htm" },
+                { Title: "Profile3", Closable: true, Url: "design_checkbox.htm" }
+            ]
+            });
+
+            $("#btnAdd").on("click", function () {
+                var title = $("#txtTabName").val();
+                var tab = { Title: title, Closable: true, Content: "<div>动态创建的内容:" + title + "</div>", Icon: { cls: "icon-home", color: "green"} };
+                $("#tab").Frame().Add(tab);
+                //$("#tab").Frame().SelectTab(title);
+            });
+
+            $("#btnAddRange").on("click", function () {
+                var tabs = [
+                { Title: "Profile4", Closable: true, Content: "<div>动态创建的内容:Profile4</div>", Icon: { cls: "icon-home", color: "green"} },
+                { Title: "Profile5", Closable: true, Content: "<div>动态创建的内容:Profile5</div>", Icon: { cls: "icon-home", color: "green"} },
+                { Title: "Profile6", Closable: true, Content: "<div>动态创建的内容:Profile6</div>", Icon: { cls: "icon-home", color: "green"} },
+                { Title: "Profile7", Closable: true, Content: "<div>动态创建的内容:Profile7</div>", Icon: { cls: "icon-home", color: "green"} }
+                ];
+                $("#tab").Frame().AddRange(tabs);
+            });
+        });
+    </script>    
+</head>
+<body>
+    <input class="frame-textbox" id="txtTabName" type="text" />
+    <button id="btnAdd" class="frame-button">Add</button>
+    <button id="btnAddRange" class="frame-button">AddRange</button>
+    <div id="tab" class="frame-tabs" style="margin:5px;">
+        <div title="sfsksdf" closable="true" icon="cls:'icon-home',color:'green'">
+        <p>jksfsjfdfjsjf</p>
+        </div>
+        <div title="大幅减少地" closable="true">
+        <p>sdfj三地警方介绍凤姐夫斯基疯狂斯蒂芬开发建设方</p>
+        </div>
+    </div>
+</body>
+</html>

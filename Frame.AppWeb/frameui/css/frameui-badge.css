@@ -1,0 +1,33 @@
+﻿/*
+ * FrameUI v2.1.0
+ *
+ * Badge样式.(5)
+ *
+ * Copyright 2015 zlx
+ *
+ */
+.frame-badge {
+    text-shadow:none;
+    font-size:12px;
+    font-weight:normal;
+    line-height:15px;
+    background-color:#abbac3!important;    
+    display:inline-block;
+	min-width:10px;
+	padding:3px 7px;
+	color:#fff;
+	text-align:center;
+	white-space:nowrap;
+	vertical-align:baseline;
+	border-radius:10px;
+}
+
+a.frame-badge:hover,a.frame-badge:focus{color:#fff;text-decoration:none;cursor:pointer;}
+
+.frame-badge-info{background-color:#3a87ad!important;}
+.frame-badge-primary{background-color:#428bca!important;}
+.frame-badge-success{background-color:#82af6f!important;}
+.frame-badge-error{background-color:#d15b47!important;}
+.frame-badge-important{background-color:#d15b47!important;}
+.frame-badge-inverse{background-color:#333!important;}
+.frame-badge-warning{background-color:#f89406!important;}

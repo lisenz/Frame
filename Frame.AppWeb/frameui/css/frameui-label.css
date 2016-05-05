@@ -1,0 +1,150 @@
+﻿/*
+ * FrameUI v2.1.0
+ *
+ * Label样式.(4)
+ *
+ * Copyright 2015 zlx
+ *
+ */
+label,.frame-label {
+    font-size:12px; 
+    height:20px; 
+    padding:.2em .6em .3em; 
+    line-height:1.25; 
+    color:#fff; 
+    text-align:center; 
+    white-space:nowrap; 
+    vertical-align:baseline; 
+    border-radius:0; 
+    text-shadow:none; 
+    font-weight:normal; 
+    display:inline-block; 
+    background-color:#abbac3!important;
+}
+.frame-label[class*="col-"][class*="arrow"]{min-height:0;}
+
+.frame-label-transparent{
+	background-color:transparent!important;
+	color:#333;
+}
+
+.frame-label-info{background-color:#3a87ad!important;}
+.frame-label-primary{background-color:#428bca!important;}
+.frame-label-success{background-color:#82af6f!important;}
+.frame-label-error{background-color:#d15b47!important;}
+.frame-label-important{background-color:#a52a2a!important;}
+.frame-label-inverse{background-color:#333!important;}
+.frame-label-warning{background-color:#f89406!important;}
+
+.frame-label.arrowed,.frame-label.arrowed-in{
+	position:relative;
+	z-index:1;
+	margin-left:5px;
+}
+.frame-label.arrowed:before,.frame-label.arrowed-in:before{
+	display:inline-block;
+	content:"";
+	position:absolute;
+	top:0;
+	z-index:-1;
+	border:1px solid transparent;
+	border-right-color:#abbac3;
+	left:-10px;
+	border-width:10px 5px;
+}
+.frame-label.arrowed-in:before{
+    left:-5px;
+	border-color:#abbac3;
+	border-left-color:transparent!important;
+}
+
+.frame-label.arrowed-right,.frame-label.arrowed-in-right{
+	position:relative;
+	z-index:1;
+	margin-right:5px;
+}
+.frame-label.arrowed-right:after,.frame-label.arrowed-in-right:after{
+	display:inline-block;
+	content:"";
+	position:absolute;
+	top:0;
+	z-index:-1;
+	border:1px solid transparent;
+	border-left-color:#abbac3;
+	right:-10px;
+	border-width:10px 5px;
+}
+.frame-label.arrowed-in-right:after{right:-5px;border-color:#abbac3;border-right-color:transparent!important;}
+
+.frame-label-info.arrowed:before{border-right-color:#3a87ad;}
+.frame-label-info.arrowed-in:before{border-color:#3a87ad;}
+.frame-label-info.arrowed-right:after{border-left-color:#3a87ad;}
+.frame-label-info.arrowed-in-right:after{border-color:#3a87ad;}
+
+.frame-label-primary.arrowed:before{border-right-color:#428bca;}
+.frame-label-primary.arrowed-in:before{border-color:#428bca;}
+.frame-label-primary.arrowed-right:after{border-left-color:#428bca;}
+.frame-label-primary.arrowed-in-right:after{border-color:#428bca;}
+
+.frame-label-success.arrowed:before{border-right-color:#82af6f;}
+.frame-label-success.arrowed-in:before{border-color:#82af6f;}
+.frame-label-success.arrowed-right:after{border-left-color:#82af6f;}
+.frame-label-success.arrowed-in-right:after{border-color:#82af6f;}
+
+.frame-label-warning.arrowed:before{border-right-color:#f89406;}
+.frame-label-warning.arrowed-in:before{border-color:#f89406;}
+.frame-label-warning.arrowed-right:after{border-left-color:#f89406;}
+.frame-label-warning.arrowed-in-right:after{border-color:#f89406;}
+
+.frame-label-important.arrowed:before{border-right-color:#a52a2a;}
+.frame-label-important.arrowed-in:before{border-color:#a52a2a;}
+.frame-label-important.arrowed-right:after{border-left-color:#a52a2a;}
+.frame-label-important.arrowed-in-right:after{border-color:#a52a2a;}
+
+.frame-label-error.arrowed:before{border-right-color:#d15b47;}
+.frame-label-error.arrowed-in:before{border-color:#d15b47;}
+.frame-label-error.arrowed-right:after{border-left-color:#d15b47;}
+.frame-label-error.arrowed-in-right:after{border-color:#d15b47;}
+
+.frame-label-inverse.arrowed:before{border-right-color:#333;}
+.frame-label-inverse.arrowed-in:before{border-color:#333;}
+.frame-label-inverse.arrowed-right:after{border-left-color:#333;}
+.frame-label-inverse.arrowed-in-right:after{border-color:#333;}
+
+/* Size */
+.frame-label-large{padding:.3em .6em .4em;font-size:13px;line-height:1.35;height:24px;}
+.frame-label-large.arrowed{margin-left:6px;}
+.frame-label-large.arrowed:before{left:-12px;border-width:12px 6px;}
+.frame-label-large.arrowed-in{margin-left:6px;}
+.frame-label-large.arrowed-in:before{left:-6px;border-width:12px 6px;}
+.frame-label-large.arrowed-right{margin-right:6px;}
+.frame-label-large.arrowed-right:after{right:-12px;border-width:12px 6px;}
+.frame-label-large.arrowed-in-right{margin-right:6px;}
+.frame-label-large.arrowed-in-right:after{right:-6px;border-width:12px 6px;}
+
+.frame-label-xlarge{padding:.3em .7em .4em;font-size:14px;line-height:1.55;height:28px;}
+.frame-label-xlarge.arrowed{margin-left:7px;}
+.frame-label-xlarge.arrowed:before{left:-14px;border-width:14px 7px;}
+.frame-label-xlarge.arrowed-in{margin-left:7px;}
+.frame-label-xlarge.arrowed-in:before{left:-7px;border-width:14px 7px;}
+.frame-label-xlarge.arrowed-right{margin-right:7px;}
+.frame-label-xlarge.arrowed-right:after{right:-14px;border-width:14px 7px;}
+.frame-label-xlarge.arrowed-in-right{margin-right:7px;}
+.frame-label-xlarge.arrowed-in-right:after{right:-7px;border-width:14px 7px;}
+
+.frame-label-small{padding:.2em .4em .3em;font-size:11px;line-height:1.2;height:18px;}
+.frame-label-small.arrowed{margin-left:4px;}
+.frame-label-small.arrowed:before{left:-8px;border-width:9px 4px;}
+.frame-label-small.arrowed-in{margin-left:4px;}
+.frame-label-small.arrowed-in:before{left:-4px;border-width:9px 4px;}
+.frame-label-small.arrowed-right{margin-right:4px;}
+.frame-label-small.arrowed-right:after{right:-8px;border-width:9px 4px;}
+.frame-label-small.arrowed-in-right{margin-right:4px;}
+.frame-label-small.arrowed-in-right:after{right:-4px;border-width:9px 4px;}
+
+.frame-label>.icon-only[class*="icon-"]{margin:0;vertical-align:middle;text-align:center;padding:0;}
+.frame-label>span,.frame-label>[class*="icon-"]{line-height:1.25;vertical-align:bottom;margin-right:4px;}
+.frame-label-large>span,.frame-label-large>[class*="icon-"]{line-height:1.35;vertical-align:bottom;margin-right:4px;}
+.frame-label-xlarge>span,.frame-label-xlarge>[class*="icon-"]{line-height:1.55;vertical-align:bottom;margin-right:4px;}
+.frame-label-small>span,.frame-label-small>[class*="icon-"]{line-height:1.2;vertical-align:bottom;margin-right:4px;}
+.frame-label>[class*="icon-"].icon-on-right,.frame-label-large>[class*="icon-"].icon-on-right,.frame-label-xlarge>[class*="icon-"].icon-on-right,.frame-label-small>[class*="icon-"].icon-on-right{margin-right:0; margin-left:0px;}

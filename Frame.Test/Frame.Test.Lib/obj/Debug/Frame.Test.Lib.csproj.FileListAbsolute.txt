@@ -1,0 +1,9 @@
+E:\Project\Actual\Frame\Frame.Test\Frame.Test.Lib\bin\Debug\Frame.Test.Lib.dll
+E:\Project\Actual\Frame\Frame.Test\Frame.Test.Lib\bin\Debug\Frame.Test.Lib.pdb
+E:\Project\Actual\Frame\Frame.Test\Frame.Test.Lib\obj\Debug\ResolveAssemblyReference.cache
+E:\Project\Actual\Frame\Frame.Test\Frame.Test.Lib\obj\Debug\Frame.Test.Lib.dll
+E:\Project\Actual\Frame\Frame.Test\Frame.Test.Lib\obj\Debug\Frame.Test.Lib.pdb
+E:\个人源码\Frame\Frame.Test\Frame.Test.Lib\bin\Debug\Frame.Test.Lib.dll
+E:\个人源码\Frame\Frame.Test\Frame.Test.Lib\bin\Debug\Frame.Test.Lib.pdb
+E:\个人源码\Frame\Frame.Test\Frame.Test.Lib\obj\Debug\Frame.Test.Lib.dll
+E:\个人源码\Frame\Frame.Test\Frame.Test.Lib\obj\Debug\Frame.Test.Lib.pdb

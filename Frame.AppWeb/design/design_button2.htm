@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Buttons</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/button.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#btn").Button({ OnClick: function (sender) { alert($(sender).text()); } });
+            $("#btnEnable").Button({
+                OnClick: function () {
+                    $("#btn").Frame().Enable();
+                }
+            });
+            $("#btnDisable").Button({
+                OnClick: function () {
+                    $("#btn").Frame().Disable();
+                }
+            });
+            $("#btnToggle").Button({
+                OnClick: function () {
+                    var disabled = $("#btn").Frame("Options", "Disabled");
+                    if (disabled)
+                        $("#btn").Frame().Enable();
+                    else
+                        $("#btn").Frame().Disable();
+                }
+            });
+
+            $("#btnSetText").Button({
+                OnClick: function () {
+                    var text = $("#txtName").val();
+                    $("#btn").Frame().SetValue(text);
+
+                    alert($("#btn").Frame().GetValue());
+                }
+            });
+            $("#btnActived").Button({
+                OnClick: function () {
+                    var actived = $("#btn").Frame("Options", "Actived");
+                    if (actived)
+                        $("#btn").Frame().Actived(false);
+                    else
+                        $("#btn").Frame().Actived(true);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-head">
+                    <h1>Buttons</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btn" class="frame-button">Button</button>
+                        <button id="btnEnable" class="frame-button">Button Trigger Enable</button>
+                        <button id="btnDisable" class="frame-button">Button Trigger Disable</button>
+                        <button id="btnToggle" class="frame-button">Button Toggle</button>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class"row">
+                    <div class="col-12">
+                        <input id="txtName" type="text" />
+                        <button id="btnSetText" class="frame-button">ButtonToSetText</button>
+                        <button id="btnActived" class="frame-button">Button Actived Toggle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

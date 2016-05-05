@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Alert</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForAlert").Tabs({ Plain: true });
+
+            $("#alert").Alert();
+            $("#alertHasIcon").Alert({ Icon: "icon-question-sign" });
+
+            $("#alertOnSuccess").Alert({ Icon: "icon-question-sign", Mode: "success" });
+            $("#alertOnError").Alert({ Icon: "icon-question-sign", Mode: "error" });
+            $("#alertOnWarning").Alert({ Icon: "icon-question-sign", Mode: "warning" });
+            $("#alertOnInfo").Alert({ Icon: "icon-question-sign", Mode: "info" });
+
+            $("#alertForLarge").Alert({ Icon: "icon-question-sign", Size: "large" });
+            $("#laertForSmall").Alert({ Icon: "icon-question-sign", Size: "small" });
+
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>Alert</h1>
+        </div>
+        <div class="row">
+            <div id="tabForAlert">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">Alert 是一个消息提醒控件，可以嵌入到页面的任何位置。通过在 <span class="red smaller-75">div</span> 标签添加 <span class="red smaller-75">.frame-alert</span> 标识为 Frame 消息提醒控件。<br />
+                    继而使用 <span class="red smaller-75">var alert = $("#页面标签id").Alert(options);</span> 这样一行代码，根据 <span class="red smaller-75">options</span> 相关属性的配置将目标元素生成为消息提醒控件对象。
+                    </p>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> Options 属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-65">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Width</td>
+                                <td>消息提醒控件的宽度。</td>
+                                <td>Number</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Icon</td>
+                                <td>设置消息提醒的图标样式名称。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Size</td>
+                                <td>消息提醒控件的尺寸，默认为标准尺寸。有两种尺寸可选：large，small。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Content</td>
+                                <td>消息提醒的内容。内容的类型可为 HTML 片段、文本或使用回调函数返回的值。当目标元素已包含有子元素内容，则该属性失效。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Mode</td>
+                                <td>消息提醒的背景色模式，有4种模式可选：info，success，warning，error。</td>
+                                <td>String</td>
+                                <td>success</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Closable</td>
+                                <td>设置一个值，该值标识消息提醒创建之后是否为关闭模式。</td>
+                                <td>Boolean</td>
+                                <td>false</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> Alert 对象方法说明见下表：<br />
+                    调用：<span class="red smaller-75">$("id").Frame().方法名();</span>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    方法
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Toggle</td>
+                                <td>none</td>
+                                <td>切换显示或关闭消息提醒控件。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">IsVisible</td>
+                                <td>none</td>
+                                <td>返回一个值，该值标识消息提醒控件是否可见。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">SetContent</td>
+                                <td>content</td>
+                                <td>设置消息提醒内容。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Show</td>
+                                <td>none</td>
+                                <td>显示消息提醒控件。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Close</td>
+                                <td>none</td>
+                                <td>取消显示消息提醒控件。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;div id="alert"&gt;默认消息提醒&lt;/div&gt;
+&lt;div id="alertHasIcon"&gt;带图标的消息提醒&lt;/div&gt;                                        
+&lt;div id="alertOnSuccess"&gt;success 模式的消息提醒&lt;/div&gt;
+&lt;div id="alertOnError"&gt;error 模式的消息提醒&lt;/div&gt;
+&lt;div id="alertOnWarning"&gt;warning 的消息提醒&lt;/div&gt;
+&lt;div id="alertOnInfo"&gt;info 模式的消息提醒&lt;/div&gt;
+&lt;div id="alertForLarge"&gt;大尺寸的消息提醒&lt;/div&gt;
+&lt;div id="laertForSmall"&gt;小尺寸的消息提醒&lt;/div&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#alert").Alert();
+$("#alertHasIcon").Alert({ Icon: "icon-question-sign" });
+
+$("#alertOnSuccess").Alert({ Icon: "icon-question-sign", Mode: "success" });
+$("#alertOnError").Alert({ Icon: "icon-question-sign", Mode: "error" });
+$("#alertOnWarning").Alert({ Icon: "icon-question-sign", Mode: "warning" });
+$("#alertOnInfo").Alert({ Icon: "icon-question-sign", Mode: "info" });
+
+$("#alertForLarge").Alert({ Icon: "icon-question-sign", Size: "large" });
+$("#laertForSmall").Alert({ Icon: "icon-question-sign", Size: "small" });</pre>
+                </div>
+                <div title="示例">
+                    <div class="space"></div>
+                    <div id="alert">默认消息提醒</div>
+                    <div id="alertHasIcon">带图标的消息提醒</div>
+                                        
+                    <div id="alertOnSuccess">success 模式的消息提醒</div>
+                    <div id="alertOnError">error 模式的消息提醒</div>
+                    <div id="alertOnWarning">warning 的消息提醒</div>
+                    <div id="alertOnInfo">info 模式的消息提醒</div>
+
+                    <div id="alertForLarge">大尺寸的消息提醒</div>
+                    <div id="laertForSmall">小尺寸的消息提醒</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

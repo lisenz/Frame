@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Buttons</title>
+    <link rel="stylesheet" href="../frameui/css/frameui.all.css" />
+    <link rel="stylesheet" href="../fontawesome/css/font-awesome.min.css" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/core.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/label.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/modules/badge.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#lbDefault").Label();
+            $("#lbTransparent").Label({ Mode: "transparent" });
+            $("#lbArrowedLeft").Label({ WithArrow: "arrowed-left", Mode: "default" });
+            $("#lbArrowedBoth").Label({ WithArrow: "arrowed-both", Mode: "primary" });
+            $("#lbArrowedRight").Label({ WithArrow: "arrowed-right", Mode: "info" });
+            $("#lbArrowedInLeft").Label({ WithArrow: "arrowed-in-left", Mode: "success" });
+            $("#lbArrowedInBoth").Label({ WithArrow: "arrowed-in-both", Mode: "error" });
+            $("#lbArrowedInRight").Label({ WithArrow: "arrowed-in-right", Mode: "inverse" });
+            $("#lbArrowLeft").Label({ WithArrow: "arrow-left", Mode: "warning" });
+            $("#lbArrowRight").Label({ WithArrow: "arrow-right", Mode: "important" });
+
+            $("#lbNormal").Label();
+            $("#lbXlarge").Label({ Size: "xlarge", Mode: "important" });
+            $("#lbLarge").Label({ Size: "large", Mode: "important" });
+            $("#lbSmall").Label({ Size: "small", Mode: "important" });
+
+            $("#lbLeftIcon").Label({ Icon: "icon-mobile-phone", IconSite: "left", Mode: "success" });
+            $("#lbSideIcon").Label({ Icon: ["icon-mobile-phone", "icon-ok"], IconSite: "side", Mode: "success" });
+            $("#lbRightIcon").Label({ Icon: "icon-mobile-phone", IconSite: "right", Mode: "success" });
+            $("#lbOnlyIcon").Label({ Icon: "icon-mobile-phone", IconSite: "only", Mode: "success" });
+
+            $("#lbXlargeLeftIcon").Label({ Size: "xlarge", Icon: "icon-mobile-phone", IconSite: "left", Mode: "inverse" });
+            $("#lbLargeSideIcon").Label({ Size: "large", Icon: ["icon-mobile-phone", "icon-ok"], IconSite: "side", Mode: "inverse" });
+            $("#lbSmallRightIcon").Label({ Size: "small", Icon: "icon-mobile-phone", IconSite: "right", Mode: "inverse" });
+
+            $("#bdPrimary").Badge({ Mode: "primary" });
+            $("#bdInfo").Badge({ Mode: "info" });
+            $("#bdSuccess").Badge({ Mode: "success" });
+            $("#bdError").Badge({ Mode: "error" });
+            $("#bdInverse").Badge({ Mode: "inverse" });
+            $("#bdWarning").Badge({ Mode: "warning" });
+            $("#bdImportant").Badge({ Mode: "important" });
+        });
+    </script>
+</head>
+<body>
+    <div class="frameui-container">
+        <div class="frameui-container-inner">
+            <div class="page-content">
+                <div class="page-head">
+                    <h1>Label</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label id="lbDefault" class="frame-label">Default Label</label>
+                        <label id="lbTransparent" class="frame-label">Default Label</label>
+                        <label id="lbArrowedLeft" class="frame-label">arrowed-left Label</label>
+                        <label id="lbArrowedBoth" class="frame-label">arrowed-both Label</label>
+                        <label id="lbArrowedRight" class="frame-label">arrowed-right Label</label>
+                        <label id="lbArrowedInLeft" class="frame-label">arrowed-in-left Label</label>
+                        <label id="lbArrowedInBoth" class="frame-label">arrowed-in-both Label</label>
+                        <label id="lbArrowedInRight" class="frame-label">arrowed-in-right Label</label>
+                        <label id="lbArrowLeft" class="frame-label">arrow-left Label</label>
+                        <label id="lbArrowRight" class="frame-label">arrow-right Label</label>
+                    </div>
+                    <div class="space"></div>
+                    <div class="col-12">
+                        <label id="lbNormal" class="frame-label">normal Label</label>
+                        <label id="lbXlarge" class="frame-label">xlarge Label</label>
+                        <label id="lbLarge" class="frame-label">large Label</label>
+                        <label id="lbSmall" class="frame-label">small Label</label>
+                        <label id="lbLeftIcon" class="frame-label">left icon Label</label>
+                        <label id="lbSideIcon" class="frame-label">side icon Label</label>
+                        <label id="lbRightIcon" class="frame-label">right icon Label</label>
+                        <label id="lbOnlyIcon" class="frame-label"></label>
+                        <label id="lbXlargeLeftIcon" class="frame-label">xlarge icon Label</label>
+                        <label id="lbLargeSideIcon" class="frame-label">large icon Label</label>
+                        <label id="lbSmallRightIcon" class="frame-label">small icon Label</label>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <div class="page-head">
+                    <h1>Badge</h1>
+                </div>
+                <div class"row">
+                    <div class="col-12">
+                        <span id="Span1" class="frame-badge">0</span>
+                        <span id="bdPrimary" class="frame-badge">1</span>
+                        <span id="bdInfo" class="frame-badge">2</span>
+                        <span id="bdSuccess" class="frame-badge">3</span>
+                        <span id="bdError" class="frame-badge">4</span>
+                        <span id="bdInverse" class="frame-badge">5</span>
+                        <span id="bdWarning" class="frame-badge">6</span>
+                        <span id="bdImportant" class="frame-badge">7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

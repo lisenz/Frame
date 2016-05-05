@@ -1,0 +1,556 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>NavBar</title>
+    <link href="../frameui/css/frameui.min.css" rel="Stylesheet" />
+    <link href="../fontawesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/prettify.css" rel="stylesheet" />
+    <link href="../css/api.table.css" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="../scripts/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../scripts/prettify.js"></script>
+    <script language="javascript" type="text/javascript" src="../frameui/frameui.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#tabForNavBar").Tabs({ Plain: true });
+
+            $("#navbar").NavBar({
+                Brand: { Icon: "icon-lemon", Text: "FrameUI" },
+                NavItems: [
+                {
+                    Icon: "icon-bell",
+                    Text: 4,
+                    Badge: "important",
+                    Color: "grey",
+                    DropMenu: {
+                        Header: {
+                            Icon: "icon-star-empty",
+                            Title: "消息列表"
+                        },
+                        Children: [
+                            {
+                                Content: "消息记录1"
+                            },
+                            {
+                                Content: "消息记录2"
+                            },
+                            {
+                                Content: "消息记录3"
+                            },
+                            {
+                                Content: "消息记录4"
+                            }
+                        ],
+                        Footer: {
+                            Icon: "icon-arrow-right",
+                            Text: "查看更多记录"
+                        },
+                        OnLastItemClick: function (navitem, index) {
+                            $.Messager.Alert("Footer", navitem.Text, "info");
+                        }
+                    }
+                },
+	            {
+	                Icon: "icon-cogs",
+	                Color: "purple",
+	                DropMenu: {
+	                    Header: {
+	                        Icon: "icon-cog",
+	                        Title: "配置列表"
+	                    },
+	                    Children: [
+                            {
+                                Content: "<i class='icon-time'></i>更新日志"
+                            },
+                            {
+                                Content: "<i class='icon-download green'></i>下载"
+                            },
+                            {
+                                Content: "<i class='icon-question-sign orange'></i>关于"
+                            }
+                        ]
+	                }
+	            }
+                ],
+                UserMenu: { Photo: "user-portrait", Content: "欢迎您,<br />Lisen",
+                    Items: [
+                        { Icon: "icon-cog", Text: "系统设置" },
+                        { Icon: "icon-user", Text: "个人资料" },
+                        { Divider: true },
+                        { Icon: "icon-off", Text: "注销" }
+                    ]
+                },
+                OnBeforeItemOpen: function (sender, item, index) {
+                    $.Messager.Alert("BeforeItemOpen", item.Text, "info");
+                    return true;
+                },
+                OnNavItemClick: function (sender, item, index) {
+                    $.Messager.Alert("NavItemClick", item.Text, "info");
+                },
+                OnNavItemChildClick: function (sender, index) {
+                    $.Messager.Alert("NavItemChildClick", $(sender).text(), "info");
+                },
+                OnBefornUserMenuOpen: function () {
+                    $.Messager.Alert("BefornUserMenuOpen", "BefornUserMenuOpen", "info");
+                    //return true;
+                },
+                OnUserMenuItemClick: function (text) {
+                    $.Messager.Alert("UserMenuItemClick", text, "info");
+                }
+            });
+
+            prettyPrint();
+        });
+    </script>
+</head>
+<body>
+    <div class="page-content">
+        <div class="page-header">
+            <h1>NarBar</h1>
+        </div>
+        <div class="row">
+            <div id="tabForNavBar">
+                <div title="开发者文档">
+                    <div class="space"></div>
+                    <p class="bigger-110">NavBar 是一个菜单工具栏控件，可以嵌入到页面的任何位置。通过在 <span class="red smaller-75">div</span> 标签添加 <span class="red smaller-75">.frame-navbar</span> 标识为 Frame 菜单工具栏控件。<br />
+                    继而使用 <span class="red smaller-75">var navbar = $("#页面标签id").NavBar(options);</span> 这样一行代码，根据 <span class="red smaller-75">options</span> 相关属性的配置将目标元素生成为菜单工具栏控件对象。
+                    </p>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> Options 属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-65">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    默认值
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Brand</td>
+                                <td>菜单项集合。设置该属性初始化菜单导航控件的内容。</td>
+                                <td>Array</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">NavItems</td>
+                                <td>加载远程数据服务的URL，获取远程数据用来生成创建菜单控件的菜单项。</td>
+                                <td>String</td>
+                                <td>null</td>
+                            </tr>
+                            <tr>
+                                <td class="center">UserMenu</td>
+                                <td>指定给加载远程页面的URL的参数对象。</td>
+                                <td>Object</td>
+                                <td>null</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> Brand 项对象属性详细说明：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Icon</td>
+                                <td>Brand的图标样式名称。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Text</td>
+                                <td>Brand文本。</td>
+                                <td>String</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> NavItems 项集合中项对象的对象属性详细说明：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Icon</td>
+                                <td>菜单项图标样式名称。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Text</td>
+                                <td>菜单项文本。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Badge</td>
+                                <td>菜单项的拓展徽章背景色模式。模式类型参照 Badge 控件的 Mode 属性。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Color</td>
+                                <td>菜单项的背景色样式。有3种样式可选：grey，green，purple</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">DropMenu</td>
+                                <td>菜单子菜单项集合。</td>
+                                <td>Array</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> DropMenu 集合的项对象的对象属性详细说明：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Header</td>
+                                <td>DropMenu 菜单的标题栏。标题栏对象格式为：｛Icon，Title｝。其中 Icon 为标题栏图标样式，Title 为标题文本。</td>
+                                <td>Object</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Footer</td>
+                                <td>DropMenu 菜单的底部操作项对象。对象格式为：｛Icon，Title｝。其中 Icon 为图标样式，Title 为内容文本。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Children</td>
+                                <td>DropMenu 菜单的菜单项集合。项对象格式为：｛Content，OnItemStyle｝，其中 Content 为项内容，可以是文本内容或HTML片段文本；OnItemStyle 是对 Content 内容做拓展处理的一个回调事件函数，返回处理后的新格式内容。</td>
+                                <td>Array</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnLastItemClick</td>
+                                <td>DropMenu 菜单的底部操作项的单击事件，当点击底部操作项时触发。</td>
+                                <td>String</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> UserMenu 项对象属性详细说明：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    属性名
+			                    </th>
+			                    <th class="width-75">
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    类型
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">Photo</td>
+                                <td>设置用户菜单项的用户头像图片的路径。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Content</td>
+                                <td>用户菜单项的项内容。可以是内容文本抑或HTML片段文本。</td>
+                                <td>String</td>
+                            </tr>
+                            <tr>
+                                <td class="center">Items</td>
+                                <td>用户菜单项的子菜单项集合。项对象格式为：｛Icon，Text，Divider｝，其中Icon 为菜单项图标样式，Text为菜单项文本内容，Divider标识该子项是否为分隔线。</td>
+                                <td>Array</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div>
+                    <i class="icon-bookmark dark"></i> Options 事件属性对象详细说明见下表：
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    名称
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">OnBrandClick</td>
+                                <td>sender</td>
+                                <td>点击 Brand 项时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnBeforeItemOpen</td>
+                                <td>sender，item，index</td>
+                                <td>菜单导航项展开前触发。当使用 return false 阻止单击事件。接收参数:当前点击的元素对象,元素对象对应的数据对象,数据对象在对象集合中的索引位置。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnNavItemClick</td>
+                                <td>sender，item，index</td>
+                                <td>点击菜单导航项时触发。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnNavItemChildClick</td>
+                                <td>sender，index</td>
+                                <td>点击展开的菜单导航项的子菜单项时触发。接收参数:当前点击的元素对象,元素对象在菜单列表中的索引位置。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnBefornUserMenuOpen</td>
+                                <td>none</td>
+                                <td>用户信息菜单 UserMenu 展开前触发。使用 return false 可阻止其单击事件。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">OnUserMenuItemClick</td>
+                                <td>text</td>
+                                <td>点击用户信息菜单的菜单项时触发。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="space"></div> 
+                    <i class="icon-bookmark dark"></i> NavBar 对象方法说明见下表：<br />
+                    调用：<span class="red smaller-75">$("id").Frame().方法名();</span>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+		                    <tr>
+			                    <th class="width-8">
+				                    <i class="icon-caret-right blue"></i>
+				                    方法
+			                    </th>
+			                    <th class="width-20">
+				                    <i class="icon-caret-right blue"></i>
+				                    参数
+			                    </th>
+			                    <th>
+				                    <i class="icon-caret-right blue"></i>
+				                    具体描述
+			                    </th>
+		                    </tr>
+	                    </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center">AddNavItem</td>
+                                <td>navitem</td>
+                                <td>追加一个导航栏列表项。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">AddNavItemDropMenu</td>
+                                <td>index, dropmenu</td>
+                                <td>添加导航栏指定索引的列表项的菜单列表。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">AddNavItemDropMenuItem</td>
+                                <td>index, dropmenuitems</td>
+                                <td>添加导航栏指定索引的列表项的菜单的子菜单项。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">SetNavItemText</td>
+                                <td>index, text</td>
+                                <td>设置导航栏指定索引的列表项的菜单项文本。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">DisableNavItem</td>
+                                <td>index</td>
+                                <td>禁用指定索引对应的列表项。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">EnableNavItem</td>
+                                <td>index</td>
+                                <td>启用指定索引对应的列表项。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">DisableNavDropMenuItem</td>
+                                <td>parent, index</td>
+                                <td>禁用指定索引对应的列表项下的菜单中指定索引对应的菜单项。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">EnableNavDropMenuItem</td>
+                                <td>parent, index</td>
+                                <td>启用用指定索引对应的列表项下的菜单中指定索引对应的菜单项。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">DisableUserMenu</td>
+                                <td>none</td>
+                                <td>禁用用户信息菜单项。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">EnableUserMenu</td>
+                                <td>none</td>
+                                <td>启用用户信息菜单项。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">DisableUserMenuItem</td>
+                                <td>index</td>
+                                <td>禁用用户信息菜单中指定索引对应的菜单项。</td>
+                            </tr>
+                            <tr>
+                                <td class="center">EnableUserMenuItem</td>
+                                <td>index</td>
+                                <td>启用用户信息菜单中指定索引对应的菜单项。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div title="代码">
+                    <h4 class="red">html代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+&lt;div id="navbar" class="frame-navbar"&gt;&lt;/div&gt;</pre>
+                    <h4 class="red">javascript代码：</h4>
+                    <pre class="frameui-pre prettyprint linenums">
+$("#navbar").NavBar({
+    Brand: { Icon: "icon-lemon", Text: "FrameUI" },
+    NavItems: [
+    {
+        Icon: "icon-bell",
+        Text: 4,
+        Badge: "important",
+        Color: "grey",
+        DropMenu: {
+            Header: {
+                Icon: "icon-star-empty",
+                Title: "消息列表"
+            },
+            Children: [
+                {
+                    Content: "消息记录1"
+                },
+                {
+                    Content: "消息记录2"
+                },
+                {
+                    Content: "消息记录3"
+                },
+                {
+                    Content: "消息记录4"
+                }
+            ],
+            Footer: {
+                Icon: "icon-arrow-right",
+                Text: "查看更多记录"
+            },
+            OnLastItemClick: function (navitem, index) {
+                $.Messager.Alert("Footer", navitem.Text, "info");
+            }
+        }
+    },
+	{
+	    Icon: "icon-cogs",
+	    Color: "purple",
+	    DropMenu: {
+	        Header: {
+	            Icon: "icon-cog",
+	            Title: "配置列表"
+	        },
+	        Children: [
+                {
+                    Content: "&lt;i class='icon-time'&gt;&lt;/i&gt;更新日志"
+                },
+                {
+                    Content: "&lt;i class='icon-download green'&gt;&lt;/i&gt;下载"
+                },
+                {
+                    Content: "&lt;i class='icon-question-sign orange'&gt;&lt;/i&gt;关于"
+                }
+            ]
+	    }
+	}
+    ],
+    UserMenu: { Photo: "user-portrait", Content: "欢迎您,&lt;br /&gt;Lisen",
+        Items: [
+            { Icon: "icon-cog", Text: "系统设置" },
+            { Icon: "icon-user", Text: "个人资料" },
+            { Divider: true },
+            { Icon: "icon-off", Text: "注销" }
+        ]
+    },
+    OnBeforeItemOpen: function (sender, item, index) {
+        $.Messager.Alert("BeforeItemOpen", item.Text, "info");
+        return true;
+    },
+    OnNavItemClick: function (sender, item, index) {
+        $.Messager.Alert("NavItemClick", item.Text, "info");
+    },
+    OnNavItemChildClick: function (sender, index) {
+        $.Messager.Alert("NavItemChildClick", $(sender).text(), "info");
+    },
+    OnBefornUserMenuOpen: function () {
+        $.Messager.Alert("BefornUserMenuOpen", "BefornUserMenuOpen", "info");
+        //return true;
+    },
+    OnUserMenuItemClick: function (text) {
+        $.Messager.Alert("UserMenuItemClick", text, "info");
+    }
+});</pre>
+                </div>
+                <div title="示例">
+                    <div class="space"></div>
+                    <div style="height:400px;">
+                        <div id="navbar" class="frame-navbar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
